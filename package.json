@@ -1,7 +1,7 @@
 {
   "name": "regalion",
   "version": "1.0.0",
-  "description": "Book list app",
+  "description": "Pokedex app",
   "main": "index.js",
   "keywords": [
     "react",
