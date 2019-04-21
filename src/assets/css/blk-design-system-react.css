@@ -10265,39 +10265,33 @@ hr {
 .icon {
   width: auto;
   height: auto; }
-  .icon i, .icon svg {
+  .icon i,
+  .icon svg {
     font-size: auto-0.75; }
 
 .icon + .icon-text {
-  padding-left: 1rem;
-  width: calc(100% - auto - 1); }
+  padding-left: 1rem; }
 
 .icon-xl {
   width: 5rem;
   height: 5rem; }
-  .icon-xl i, .icon-xl svg {
+  .icon-xl i,
+  .icon-xl svg {
     font-size: 4.25rem; }
-
-.icon-xl + .icon-text {
-  width: calc(100% - $icon-size-xl - 1); }
 
 .icon-lg {
   width: 3.7rem;
   height: 3.7rem; }
-  .icon-lg i, .icon-lg svg {
+  .icon-lg i,
+  .icon-lg svg {
     font-size: 2.95rem; }
-
-.icon-lg + .icon-text {
-  width: calc(100% - $icon-size-lg - 1); }
 
 .icon-sm {
   width: 1.875rem;
   height: 1.875rem; }
-  .icon-sm i, .icon-sm svg {
+  .icon-sm i,
+  .icon-sm svg {
     font-size: 1.125rem; }
-
-.icon-sm + .icon-text {
-  width: calc(100% - $icon-size-sm - 1); }
 
 .icon-shape {
   padding: 12px;
@@ -10306,11 +10300,14 @@ hr {
   align-items: center;
   justify-content: center;
   border-radius: 50%; }
-  .icon-shape i, .icon-shape svg {
+  .icon-shape i,
+  .icon-shape svg {
     font-size: 1.25rem; }
-  .icon-shape.icon-lg i, .icon-shape.icon-lg svg {
+  .icon-shape.icon-lg i,
+  .icon-shape.icon-lg svg {
     font-size: 1.625rem; }
-  .icon-shape.icon-sm i, .icon-shape.icon-sm svg {
+  .icon-shape.icon-sm i,
+  .icon-shape.icon-sm svg {
     font-size: .875rem; }
   .icon-shape svg {
     width: 30px;
@@ -15315,3 +15312,5 @@ td.rdtYear:hover {
   color: #1d8cf8; }
   .blockquote.blockquote-info small {
     color: #1d8cf8; }
+
+/*# sourceMappingURL=blk-design-system-react.css.map */

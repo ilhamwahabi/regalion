@@ -1,12 +1,8 @@
 {
-  "name": "blk-design-system-react",
+  "name": "regalion",
   "version": "1.0.0",
-  "description": "React version of BLK Design System by Creative Tim",
+  "description": "Book list app",
   "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/creativetimofficial/blk-design-system-react.git"
-  },
   "keywords": [
     "react",
     "reactjs",
@@ -25,12 +21,12 @@
     "blk-design-system",
     "blk-design-system-react"
   ],
-  "author": "Creative Tim",
+  "author": "Ilham Wahabi",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/creativetimofficial/blk-design-system-react/issues"
+    "url": "https://github.com/iwgx/regalion"
   },
-  "homepage": "https://github.com/creativetimofficial/blk-design-system-react#readme",
+  "homepage": "https://regalion.surge.sh",
   "dependencies": {
     "chart.js": "2.7.3",
     "classnames": "2.2.6",
@@ -55,7 +51,9 @@
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
     "compile-sass": "node-sass src/assets/scss/blk-design-system-react.scss src/assets/css/blk-design-system-react.css",
     "minify-sass": "node-sass src/assets/scss/blk-design-system-react.scss src/assets/css/blk-design-system-react.min.css --output-style compressed",
-    "map-sass": "node-sass src/assets/scss/blk-design-system-react.scss src/assets/css/blk-design-system-react.css --source-map true"
+    "map-sass": "node-sass src/assets/scss/blk-design-system-react.scss src/assets/css/blk-design-system-react.css --source-map true",
+    "predeploy": "npm run build",
+    "deploy": "surge build --domain https://regalion.surge.sh"
   },
   "eslintConfig": {
     "extends": "react-app"
