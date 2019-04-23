@@ -4,11 +4,13 @@ import { Navbar, Container, Input } from "reactstrap";
 class ComponentsNavbar extends Component {
   render() {
     return (
-      <Navbar className="fixed-top navbar-transparent" expand="lg">
+      <Navbar className="navbar-transparent" expand="lg">
         <Container>
-          <Input 
-            type="text" name="pokemon" placeholder="Search any Pokemon" 
-            style={{ textAlign: 'center', fontSize: '16px' }}
+          <Input
+            type="text"
+            name="pokemon"
+            placeholder="Search any Pokemon"
+            style={{ textAlign: "center", fontSize: "16px" }}
           />
         </Container>
       </Navbar>

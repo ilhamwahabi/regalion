@@ -11,7 +11,7 @@ import {
 class Footer extends Component {
   render() {
     return (
-      <footer className="section-navbars fixed-bottom">
+      <footer className="section-navbars">
         <div id="footer">
           <div className="navigation">
             <Navbar className="navbar-transparent" expand="sm">
