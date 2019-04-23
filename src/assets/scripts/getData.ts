@@ -16,7 +16,20 @@ const getData = () => {
       family: {
         id: 331,
         evolutionStage: 3,
-        "evolution-line": ["Froakie", "Frogadier", "Greninja"]
+        "evolution-line": [
+          {
+            name: "Froakie",
+            sprite: "https://pokeres.bastionbot.org/images/pokemon/656.png"
+          },
+          {
+            name: "Frogadier",
+            sprite: "https://pokeres.bastionbot.org/images/pokemon/657.png"
+          },
+          {
+            name: "Greninja",
+            sprite: "https://pokeres.bastionbot.org/images/pokemon/658.png"
+          }
+        ]
       },
       starter: false,
       legendary: false,
@@ -42,7 +55,20 @@ const getData = () => {
       family: {
         id: 331,
         evolutionStage: 3,
-        "evolution-line": ["Froakie", "Frogadier", "Greninja"]
+        "evolution-line": [
+          {
+            name: "Froakie",
+            sprite: "https://pokeres.bastionbot.org/images/pokemon/656.png"
+          },
+          {
+            name: "Frogadier",
+            sprite: "https://pokeres.bastionbot.org/images/pokemon/657.png"
+          },
+          {
+            name: "Greninja",
+            sprite: "https://pokeres.bastionbot.org/images/pokemon/658-ash.png"
+          }
+        ]
       },
       starter: false,
       legendary: false,

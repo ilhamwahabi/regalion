@@ -1,10 +1,31 @@
 import React from "react";
+import { Container, Row, Col } from "reactstrap";
 
-const Sprite = ({ name, sprite }: { name: string; sprite: string }) => {
+const Sprite = ({
+  name,
+  number,
+  sprite
+}: {
+  name: string;
+  number: string;
+  sprite: string;
+}) => {
   return (
-    <div>
-      <img src={sprite} alt={name} />
-    </div>
+    <Container>
+      <Row className="text-center" style={{ marginBottom: "25px" }}>
+        <Col>
+          <div className="d-flex justify-content-between align-items-end">
+            <span className="display-1 text-white">{name}</span>
+            <span className="display-3">#{number}</span>
+          </div>
+        </Col>
+      </Row>
+      <Row className="text-center">
+        <Col>
+          <img style={{ maxHeight: "360px" }} src={sprite} alt={name} />
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
