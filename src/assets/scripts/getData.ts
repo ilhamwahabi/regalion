@@ -37,7 +37,17 @@ const getData = () => {
       ultraBeast: false,
       mega: false,
       gen: 6,
-      sprite: "https://pokeres.bastionbot.org/images/pokemon/658.png"
+      sprite: "https://pokeres.bastionbot.org/images/pokemon/658.png",
+      previous: {
+        name: "Frogadier",
+        number: "657",
+        sprite: "https://pokeres.bastionbot.org/images/pokemon/657.png"
+      },
+      next: {
+        name: "Bunnelby",
+        number: "659",
+        sprite: "https://pokeres.bastionbot.org/images/pokemon/659.png"
+      }
     },
     {
       number: "658",
@@ -76,7 +86,17 @@ const getData = () => {
       ultraBeast: false,
       mega: false,
       gen: 6,
-      sprite: "https://pokeres.bastionbot.org/images/pokemon/658-ash.png"
+      sprite: "https://pokeres.bastionbot.org/images/pokemon/658-ash.png",
+      previous: {
+        name: "Frogadier",
+        number: "657",
+        sprite: "https://pokeres.bastionbot.org/images/pokemon/657.png"
+      },
+      next: {
+        name: "Bunnelby",
+        number: "659",
+        sprite: "https://pokeres.bastionbot.org/images/pokemon/659.png"
+      }
     }
   ];
 };

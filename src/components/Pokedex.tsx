@@ -4,6 +4,7 @@ import { Container, Row, Col } from "reactstrap";
 import Sprite from "./Pokedex/Sprite";
 import getData from "../assets/scripts/getData";
 import Description from "./Pokedex/Description";
+import Direction from "./Pokedex/Direction";
 
 const Pokedex = () => {
   const [data, setData] = useState(getData());
@@ -12,7 +13,12 @@ const Pokedex = () => {
   return (
     <Container>
       <Row>
-        <Col md="12" lg="1" />
+        <Direction
+          sprite={data[selectedPokemon].previous.sprite}
+          name={data[selectedPokemon].previous.name}
+          number={data[selectedPokemon].previous.number}
+          type="previous"
+        />
         <Col md="12" lg="5">
           <Sprite
             name={data[selectedPokemon].name}
@@ -33,7 +39,12 @@ const Pokedex = () => {
             family={data[selectedPokemon].family}
           />
         </Col>
-        <Col md="12" lg="1" />
+        <Direction
+          sprite={data[selectedPokemon].next.sprite}
+          name={data[selectedPokemon].next.name}
+          number={data[selectedPokemon].next.number}
+          type="next"
+        />
       </Row>
     </Container>
   );
