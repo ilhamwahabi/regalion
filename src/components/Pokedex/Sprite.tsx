@@ -12,10 +12,15 @@ const Sprite = ({
 }) => {
   return (
     <Container>
-      <Row className="text-center" style={{ marginBottom: "25px" }}>
+      <Row className="text-center" style={{ marginBottom: "20px" }}>
         <Col>
           <div className="d-flex justify-content-between align-items-end">
-            <span className="display-1 text-white">{name}</span>
+            <span
+              style={{ paddingBottom: "5px", borderBottom: "1px solid white" }}
+              className="display-1 text-white"
+            >
+              {name}
+            </span>
             <span className="display-3">#{number}</span>
           </div>
         </Col>

@@ -11,7 +11,7 @@ const Pokedex = () => {
   const [selectedPokemon, setSelectedPokemon] = useState(0);
 
   return (
-    <Container>
+    <Container fluid={true}>
       <Row>
         <Direction
           sprite={data[selectedPokemon].previous.sprite}
@@ -19,7 +19,7 @@ const Pokedex = () => {
           number={data[selectedPokemon].previous.number}
           type="previous"
         />
-        <Col md="12" lg="5">
+        <Col md="12" lg="4">
           <Sprite
             name={data[selectedPokemon].name}
             number={data[selectedPokemon].number}
@@ -28,7 +28,7 @@ const Pokedex = () => {
         </Col>
         <Col
           md="12"
-          lg="5"
+          lg="4"
           className="d-flex flex-column justify-content-center"
         >
           <Description

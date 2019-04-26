@@ -17,17 +17,17 @@ const Direction = ({
   return (
     <Col
       md="12"
-      lg="1"
+      lg="2"
       className="d-flex flex-column justify-content-center text-center"
     >
       <div
-        style={{ opacity, transition: ".5s opacity", cursor: "pointer" }}
+        style={{ opacity, transition: ".25s opacity", cursor: "pointer" }}
         onMouseOver={e => setOpacity(1)}
         onMouseOut={e => setOpacity(0.5)}
       >
-        <img src={sprite} alt={name} />
-        <h5 className="text-white mb-1 mt-2">{name}</h5>
-        <h6 className="text-white">#{number}</h6>
+        <img width="75" src={sprite} alt={name} />
+        <h5 className="text-white mt-2 mb-1">{name}</h5>
+        <h4 className="text-white mt-1 display-5">#{number}</h4>
       </div>
     </Col>
   );
