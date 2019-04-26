@@ -90,7 +90,7 @@ $colors: map-merge((
   "gray":       $gray-600,
   "light":      $gray-400,
   "lighter":    $gray-200,
-  "gray-dark":  $gray-800
+  "gray-dark":  $gray-800,
 ), $colors);
 
 $default-color-opacity:      rgba(182, 182, 182, .6) !default;
@@ -104,7 +104,6 @@ $info:          #1d8cf8 !default;
 $warning:       #ff8d72 !default;
 $danger:        #fd5d93 !default;
 $black:         #222a42 !default;
-
 
 // gradient
 $default-states:       #263148 !default;
@@ -136,10 +135,8 @@ $search-gray:                #b7b7b7 !default;
 $calendar-gray:              #9499a7 !default;
 $active-blue:                #00bbff !default;
 
-
-
 $light:         $gray-500 !default;
-$dark:          $gray-900 !default;
+// $dark:          $gray-900 !default;
 $darker:        darken($gray-900, 15%) !default;
 
 $facebook:              #3b5998 !default;
@@ -167,6 +164,27 @@ $tumblr-states:         lighten($tumblr, 6%) !default;
 $behance:               #1769ff !default;
 $behance-states:        lighten($behance, 6%) !default;
 
+// Pokemon Type Theme
+
+$bug: #8AC249 !default;
+$dark: #705848 !default;
+$dragon: #6639B6 !default;
+$electric: #FFC107 !default;
+$fairy: #ff80ab !default;
+$flying: #9575cd !default;
+$fighting: #bf360c !default;
+$ghost: #311b92 !default;
+$grass: #00c853 !default;
+$ground: #8d6e63 !default;
+$normal: #A8A878 !default;
+$poison: #6a1b9a !default;
+$psychic: #f50057 !default;
+$rock: #B8A038 !default;
+$steel: #607d8b !default;
+$fire: #f44336 !default;
+$ice: #00f2c3 !default;
+$water: #1d8cf8 !default;
+
 $theme-colors: () !default;
 $theme-colors: map-merge((
   "default":      $default,
@@ -178,8 +196,27 @@ $theme-colors: map-merge((
   "danger":       $danger,
   "white":        $white,
   "neutral":      $white,
+  // "dark":         $dark,
+  "darker":       $darker,
+
+  "bug":          $bug,
   "dark":         $dark,
-  "darker":       $darker
+  "dragon":       $dragon,
+  "electric":     $electric,
+  "fairy":        $fairy,
+  "flying":       $flying,
+  "fighting":     $fighting,
+  "ghost":        $ghost,
+  "grass":        $grass,
+  "ground":       $ground,
+  "normal":       $normal,
+  "poison":       $poison,
+  "psychic":      $psychic,
+  "rock":         $rock,
+  "steel":        $steel,
+  "fire":         $fire,
+  "ice":          $ice,
+  "water":        $water
 ), $theme-colors);
 
 $brand-colors: () !default;

@@ -124,6 +124,27 @@
               }
 .btn-neutral { @include btn-styles($white, $white); }
 
+// Pokemon Type Button
+
+.btn-bug { @include btn-styles($bug, $bug); }
+.btn-dark { @include btn-styles($dark, $dark); }
+.btn-dragon { @include btn-styles($dragon, $dragon); }
+.btn-electric { @include btn-styles($electric, $electric); }
+.btn-fairy { @include btn-styles($fairy, $fairy); }
+.btn-flying { @include btn-styles($flying, $flying); }
+.btn-fighting { @include btn-styles($fighting, $fighting); }
+.btn-ghost { @include btn-styles($ghost, $ghost); }
+.btn-grass { @include btn-styles($grass, $grass); }
+.btn-ground { @include btn-styles($ground, $ground); }
+.btn-normal { @include btn-styles($normal, $normal); }
+.btn-poison { @include btn-styles($poison, $poison); }
+.btn-psychic { @include btn-styles($psychic, $psychic); }
+.btn-rock { @include btn-styles($rock, $rock); }
+.btn-steel { @include btn-styles($steel, $steel); }
+.btn-fire { @include btn-styles($fire, $fire); }
+.btn-ice { @include btn-styles($ice, $ice); }
+.btn-water { @include btn-styles($water, $water); }
+
 .btn{
      &:disabled,
      &[disabled],
