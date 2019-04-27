@@ -1,19 +1,28 @@
 import React, { Component } from "react";
 import { Navbar, Container, Input, Form, FormGroup } from "reactstrap";
+import { Field, reduxForm, InjectedFormProps } from "redux-form";
+import { connect } from "react-redux";
 
-class ComponentsNavbar extends Component {
-  state = {
-    search: ""
-  };
-
-  onChangeSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({ search: event.target.value });
-  };
+class ComponentsNavbar extends Component<InjectedFormProps, {}> {
+  onChangeSearch = (event: React.ChangeEvent<HTMLInputElement>) => {};
 
   onSearchPokemon = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    console.log(this.state.search, "Submitted!!!");
+    console.log("Submitted!!!");
+  };
+
+  renderField = ({ input }: any) => {
+    return (
+      <Input
+        type="text"
+        name="pokemon"
+        placeholder="Search any Pokemon"
+        style={{ textAlign: "center", fontSize: "16px" }}
+        autoComplete="off"
+        {...input}
+      />
+    );
   };
 
   render() {
@@ -22,14 +31,7 @@ class ComponentsNavbar extends Component {
         <Container>
           <Form className="w-100" onSubmit={this.onSearchPokemon}>
             <FormGroup>
-              <Input
-                type="text"
-                name="pokemon"
-                placeholder="Search any Pokemon"
-                style={{ textAlign: "center", fontSize: "16px" }}
-                value={this.state.search}
-                onChange={this.onChangeSearch}
-              />
+              <Field name="search" component={this.renderField} />
             </FormGroup>
           </Form>
         </Container>
@@ -38,4 +40,6 @@ class ComponentsNavbar extends Component {
   }
 }
 
-export default ComponentsNavbar;
+const formWrapper = reduxForm({ form: "searchPokemon" })(ComponentsNavbar);
+
+export default connect(null)(formWrapper);

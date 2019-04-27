@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { Container, Row, Col } from "reactstrap";
 
 import Sprite from "./Pokedex/Sprite";
-import getData from "../assets/scripts/getData";
+import { greninja } from "../assets/scripts/getData";
 import Description from "./Pokedex/Description";
 import Direction from "./Pokedex/Direction";
 
 const Pokedex = () => {
-  const [data, setData] = useState(getData());
+  const [data, setData] = useState(greninja);
   const [selectedPokemon, setSelectedPokemon] = useState(0);
 
   return (

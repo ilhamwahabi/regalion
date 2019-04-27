@@ -17,7 +17,7 @@ const Description = ({
   family: {
     id: number;
     evolutionStage: number;
-    "evolution-line": { name: string; sprite: string }[];
+    evolutionLine: { name: string; sprite: string }[];
   };
 }) => {
   return (
@@ -64,7 +64,7 @@ const Description = ({
         <h4 className="m-auto">Evolution Line</h4>
       </Row>
       <Row className="text-center m-3">
-        {family["evolution-line"].map(({ name, sprite }, index) => (
+        {family.evolutionLine.map(({ name, sprite }, index) => (
           <Col style={{ cursor: "pointer" }} key={index}>
             <img width="60" src={sprite} alt={name} />
             <h6 className="mt-3 text-white">{name}</h6>
