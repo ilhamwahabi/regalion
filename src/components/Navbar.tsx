@@ -4,11 +4,8 @@ import { Field, reduxForm, InjectedFormProps } from "redux-form";
 import { connect } from "react-redux";
 
 class ComponentsNavbar extends Component<InjectedFormProps, {}> {
-  onChangeSearch = (event: React.ChangeEvent<HTMLInputElement>) => {};
-
   onSearchPokemon = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
     console.log("Submitted!!!");
   };
 

@@ -1,29 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
 import { Container, Row, Col } from "reactstrap";
+import { connect } from "react-redux";
 
 import Sprite from "./Pokedex/Sprite";
-import { greninja } from "../assets/scripts/getData";
 import Description from "./Pokedex/Description";
 import Direction from "./Pokedex/Direction";
 
-const Pokedex = () => {
-  const [data, setData] = useState(greninja);
-  const [selectedPokemon, setSelectedPokemon] = useState(0);
+const Pokedex = (props: any) => {
+  const { pokemon, selectedForm } = props.pokemon;
 
   return (
     <Container fluid={true}>
       <Row>
         <Direction
-          sprite={data[selectedPokemon].previous.sprite}
-          name={data[selectedPokemon].previous.name}
-          number={data[selectedPokemon].previous.number}
+          sprite={pokemon[selectedForm].previous.sprite}
+          name={pokemon[selectedForm].previous.name}
+          number={pokemon[selectedForm].previous.number}
           type="previous"
         />
         <Col md="12" lg="4">
           <Sprite
-            name={data[selectedPokemon].name}
-            number={data[selectedPokemon].number}
-            sprite={data[selectedPokemon].sprite}
+            name={pokemon[selectedForm].name}
+            number={pokemon[selectedForm].number}
+            sprite={pokemon[selectedForm].sprite}
           />
         </Col>
         <Col
@@ -32,17 +31,17 @@ const Pokedex = () => {
           className="d-flex flex-column justify-content-center"
         >
           <Description
-            types={data[selectedPokemon].types}
-            height={data[selectedPokemon].height}
-            weight={data[selectedPokemon].weight}
-            abilities={data[selectedPokemon].abilities}
-            family={data[selectedPokemon].family}
+            types={pokemon[selectedForm].types}
+            height={pokemon[selectedForm].height}
+            weight={pokemon[selectedForm].weight}
+            abilities={pokemon[selectedForm].abilities}
+            family={pokemon[selectedForm].family}
           />
         </Col>
         <Direction
-          sprite={data[selectedPokemon].next.sprite}
-          name={data[selectedPokemon].next.name}
-          number={data[selectedPokemon].next.number}
+          sprite={pokemon[selectedForm].next.sprite}
+          name={pokemon[selectedForm].next.name}
+          number={pokemon[selectedForm].next.number}
           type="next"
         />
       </Row>
@@ -50,4 +49,8 @@ const Pokedex = () => {
   );
 };
 
-export default Pokedex;
+const mapStateToProps = (state: any) => {
+  return { pokemon: state.pokemon };
+};
+
+export default connect(mapStateToProps)(Pokedex);
