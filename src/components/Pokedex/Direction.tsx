@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 import { Col } from "reactstrap";
+import { connect } from "react-redux";
+
+import { changePokemon } from "../../actions";
 
 const Direction = ({
   sprite,
   name,
   number,
-  type
+  changePokemon
 }: {
   sprite: string;
   name: string;
   number: string;
-  type: "previous" | "next";
+  changePokemon: Function;
 }) => {
   const [opacity, setOpacity] = useState(0.5);
 
@@ -19,6 +22,7 @@ const Direction = ({
       md="12"
       lg="2"
       className="d-flex flex-column justify-content-center text-center"
+      onClick={() => changePokemon(name)}
     >
       <div
         style={{ opacity, transition: ".25s opacity", cursor: "pointer" }}
@@ -33,4 +37,7 @@ const Direction = ({
   );
 };
 
-export default Direction;
+export default connect(
+  null,
+  { changePokemon }
+)(Direction);

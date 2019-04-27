@@ -16,7 +16,6 @@ const Pokedex = (props: any) => {
           sprite={pokemon[selectedForm].previous.sprite}
           name={pokemon[selectedForm].previous.name}
           number={pokemon[selectedForm].previous.number}
-          type="previous"
         />
         <Col md="12" lg="4">
           <Sprite
@@ -42,7 +41,6 @@ const Pokedex = (props: any) => {
           sprite={pokemon[selectedForm].next.sprite}
           name={pokemon[selectedForm].next.name}
           number={pokemon[selectedForm].next.number}
-          type="next"
         />
       </Row>
     </Container>
