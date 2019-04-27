@@ -1,14 +1,16 @@
 import React from "react";
 import { Row, Col, Button } from "reactstrap";
+import { connect } from "react-redux";
 
-import pokemonType from "../../assets/type";
+import { changePokemon } from "../../actions";
 
 const Description = ({
   types,
   height,
   weight,
   abilities,
-  family
+  family,
+  changePokemon
 }: {
   types: string[];
   height: string;
@@ -19,6 +21,7 @@ const Description = ({
     evolutionStage: number;
     evolutionLine: { name: string; sprite: string }[];
   };
+  changePokemon: Function;
 }) => {
   return (
     <div>
@@ -65,7 +68,11 @@ const Description = ({
       </Row>
       <Row className="text-center m-3">
         {family.evolutionLine.map(({ name, sprite }, index) => (
-          <Col style={{ cursor: "pointer" }} key={index}>
+          <Col
+            onClick={() => changePokemon(name)}
+            style={{ cursor: "pointer" }}
+            key={index}
+          >
             <img width="60" src={sprite} alt={name} />
             <h6 className="mt-3 text-white">{name}</h6>
           </Col>
@@ -75,4 +82,7 @@ const Description = ({
   );
 };
 
-export default Description;
+export default connect(
+  null,
+  { changePokemon }
+)(Description);

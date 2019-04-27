@@ -7,7 +7,7 @@ import { changePokemon } from "../actions";
 
 class ComponentsNavbar extends Component<InjectedFormProps, {}> {
   onSearchPokemon = (formValues: any) => {
-    (this.props as any).changePokemon(formValues);
+    (this.props as any).changePokemon(formValues.search);
   };
 
   renderField = ({ input }: any) => {
