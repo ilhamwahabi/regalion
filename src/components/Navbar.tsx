@@ -15,7 +15,7 @@ class ComponentsNavbar extends Component<InjectedFormProps, {}> {
       <Input
         type="text"
         name="pokemon"
-        placeholder="Search any Pokemon"
+        placeholder="Search any Pokémon"
         style={{ textAlign: "center", fontSize: "16px" }}
         autoComplete="off"
         {...input}
