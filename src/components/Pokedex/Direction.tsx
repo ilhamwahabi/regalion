@@ -37,7 +37,17 @@ const Direction = ({
   );
 };
 
+const mapStateToProps = (state: any, { type }: any) => {
+  const { pokemon, selectedForm } = state.pokemon;
+
+  return {
+    sprite: pokemon[selectedForm][type].sprite,
+    name: pokemon[selectedForm][type].name,
+    number: pokemon[selectedForm][type].number
+  };
+};
+
 export default connect(
-  null,
+  mapStateToProps,
   { changePokemon }
 )(Direction);

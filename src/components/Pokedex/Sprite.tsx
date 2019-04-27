@@ -1,5 +1,6 @@
 import React from "react";
-import { Container, Row, Col } from "reactstrap";
+import { Row, Col } from "reactstrap";
+import { connect } from "react-redux";
 
 const Sprite = ({
   name,
@@ -11,7 +12,7 @@ const Sprite = ({
   sprite: string;
 }) => {
   return (
-    <Container>
+    <Col md="12" lg="4">
       <Row className="text-center" style={{ marginBottom: "20px" }}>
         <Col>
           <div className="d-flex justify-content-between align-items-end">
@@ -30,8 +31,18 @@ const Sprite = ({
           <img style={{ maxHeight: "360px" }} src={sprite} alt={name} />
         </Col>
       </Row>
-    </Container>
+    </Col>
   );
 };
 
-export default Sprite;
+const mapStateToProps = (state: any) => {
+  const { pokemon, selectedForm } = state.pokemon;
+
+  return {
+    name: pokemon[selectedForm].name,
+    number: pokemon[selectedForm].number,
+    sprite: pokemon[selectedForm].sprite
+  };
+};
+
+export default connect(mapStateToProps)(Sprite);

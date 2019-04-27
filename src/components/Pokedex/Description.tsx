@@ -86,7 +86,7 @@ const Description = ({
   };
 
   return (
-    <div>
+    <Col md="12" lg="4" className="d-flex flex-column justify-content-center">
       <Row className="mb-3">
         {types.map((type, index) => (
           <Col key={index} className="text-center">
@@ -106,11 +106,23 @@ const Description = ({
       </Row>
       {renderAbilities()}
       {renderEvolutionLine()}
-    </div>
+    </Col>
   );
 };
 
+const mapStateToProps = (state: any) => {
+  const { pokemon, selectedForm } = state.pokemon;
+
+  return {
+    types: pokemon[selectedForm].types,
+    height: pokemon[selectedForm].height,
+    weight: pokemon[selectedForm].weight,
+    abilities: pokemon[selectedForm].abilities,
+    family: pokemon[selectedForm].family
+  };
+};
+
 export default connect(
-  null,
+  mapStateToProps,
   { changePokemon }
 )(Description);
