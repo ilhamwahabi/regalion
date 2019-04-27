@@ -3,10 +3,11 @@ import { Navbar, Container, Input, Form, FormGroup } from "reactstrap";
 import { Field, reduxForm, InjectedFormProps } from "redux-form";
 import { connect } from "react-redux";
 
+import { changePokemon } from "../actions";
+
 class ComponentsNavbar extends Component<InjectedFormProps, {}> {
-  onSearchPokemon = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    console.log("Submitted!!!");
+  onSearchPokemon = (formValues: any) => {
+    (this.props as any).changePokemon(formValues);
   };
 
   renderField = ({ input }: any) => {
@@ -26,7 +27,10 @@ class ComponentsNavbar extends Component<InjectedFormProps, {}> {
     return (
       <Navbar className="navbar-transparent" expand="lg">
         <Container>
-          <Form className="w-100" onSubmit={this.onSearchPokemon}>
+          <Form
+            className="w-100"
+            onSubmit={this.props.handleSubmit(this.onSearchPokemon)}
+          >
             <FormGroup>
               <Field name="search" component={this.renderField} />
             </FormGroup>
@@ -39,4 +43,9 @@ class ComponentsNavbar extends Component<InjectedFormProps, {}> {
 
 const formWrapper = reduxForm({ form: "searchPokemon" })(ComponentsNavbar);
 
-export default connect(null)(formWrapper);
+export default connect(
+  null,
+  {
+    changePokemon
+  }
+)(formWrapper);
