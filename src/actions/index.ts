@@ -7,3 +7,7 @@ export const changePokemon = (pokemonName: string) => async (
 
   dispatch({ type: "CHANGE_POKEMON", payload: response.data });
 };
+
+export const startLoading = () => ({ type: "START_LOADING" });
+
+export const finishLoading = () => ({ type: "FINISH_LOADING" });

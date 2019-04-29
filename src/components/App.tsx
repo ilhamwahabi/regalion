@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import Pokedex from "./Pokedex";
@@ -18,4 +20,8 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = ({ loading }: { loading: boolean }) => {
+  return { loading };
+};
+
+export default connect(mapStateToProps)(App);
