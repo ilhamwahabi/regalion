@@ -2,9 +2,13 @@
 
 ## Description
 
-Pokedex app that built upon React and Bootstrap. Deployed to Surge.
+Pokedex app that built upon React (+Typescript) and Bootstrap. Deployed to Surge.
 
-Use API from https://pokedevs.gitbook.io to serve data. Response being cached locally after first request.
+State management with Redux. With help by redux-thunk and redux-form.
+
+Use API from https://pokedevs.gitbook.io to serve data. Response being cached locally after first request with IndexedDB.
+
+Use [Blk• Design System React](https://github.com/creativetimofficial/blk-design-system-react) for project template from Creative Tim.
 
 ## Usage
 
