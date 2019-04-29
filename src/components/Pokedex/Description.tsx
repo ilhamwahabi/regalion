@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { changePokemon } from "../../actions";
 
 const Description = ({
+  name,
   types,
   height,
   weight,
@@ -12,6 +13,7 @@ const Description = ({
   family,
   changePokemon
 }: {
+  name: string;
   types: string[];
   height: string;
   weight: string;
@@ -57,7 +59,7 @@ const Description = ({
     );
   };
 
-  const renderEvolutionLine = () => {
+  const renderEvolutionLine = (pokemonName: string) => {
     return (
       <>
         <Row className="mt-3">
@@ -71,7 +73,7 @@ const Description = ({
           ) : (
             family.evolutionLine.map(({ name, sprite }, index) => (
               <Col
-                onClick={() => changePokemon(name)}
+                onClick={() => pokemonName !== name && changePokemon(name)}
                 style={{ cursor: "pointer" }}
                 key={index}
               >
@@ -105,7 +107,7 @@ const Description = ({
         </Col>
       </Row>
       {renderAbilities()}
-      {renderEvolutionLine()}
+      {renderEvolutionLine(name)}
     </Col>
   );
 };
@@ -114,6 +116,7 @@ const mapStateToProps = (state: any) => {
   const { pokemon, selectedForm } = state.pokemon;
 
   return {
+    name: pokemon[selectedForm].name,
     types: pokemon[selectedForm].types,
     height: pokemon[selectedForm].height,
     weight: pokemon[selectedForm].weight,

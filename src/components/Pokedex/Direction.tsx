@@ -24,15 +24,17 @@ const Direction = ({
       className="d-flex flex-column justify-content-center text-center"
       onClick={() => changePokemon(name)}
     >
-      <div
-        style={{ opacity, transition: ".25s opacity", cursor: "pointer" }}
-        onMouseOver={e => setOpacity(1)}
-        onMouseOut={e => setOpacity(0.5)}
-      >
-        <img width="75" src={sprite} alt={name} />
-        <h5 className="text-white mt-2 mb-1">{name}</h5>
-        <h4 className="text-white mt-1 display-5">#{number}</h4>
-      </div>
+      {name && (
+        <div
+          style={{ opacity, transition: ".25s opacity", cursor: "pointer" }}
+          onMouseOver={e => setOpacity(1)}
+          onMouseOut={e => setOpacity(0.5)}
+        >
+          <img width="75" src={sprite} alt={name} />
+          <h5 className="text-white mt-2 mb-1">{name}</h5>
+          <h4 className="text-white mt-1 display-5">#{number}</h4>
+        </div>
+      )}
     </Col>
   );
 };
