@@ -20,3 +20,12 @@ Or if you want to try on your machine:
 2. Install dependencies ( `yarn` )
 3. Run app ( `yarn start` )
 4. Deploy, make sure you have surge installed globally ( `yarn deploy` )
+
+## Todo
+
+- Fix problem for certain pokemon (ex: Eevee)
+- Able switch to another form
+- Make responsive
+- Caching in client
+- Use Typescript properly
+- Fix font size issue with name and ability
