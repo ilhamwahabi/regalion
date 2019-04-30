@@ -4,10 +4,14 @@ import { Field, reduxForm, InjectedFormProps } from "redux-form";
 import { connect } from "react-redux";
 
 import { changePokemon } from "../actions";
+import pokemon from "../assets/ts/name";
 
 class ComponentsNavbar extends Component<InjectedFormProps, {}> {
-  onSearchPokemon = (formValues: any) => {
-    (this.props as any).changePokemon(formValues.search);
+  onSearchPokemon = ({ search }: any) => {
+    const pokemonName = search[0].toUpperCase() + search.slice(1);
+
+    if (pokemon.includes(pokemonName))
+      (this.props as any).changePokemon(search);
   };
 
   renderField = ({ input }: any) => {
@@ -18,6 +22,7 @@ class ComponentsNavbar extends Component<InjectedFormProps, {}> {
         placeholder="Search any Pokémon"
         style={{ textAlign: "center", fontSize: "16px" }}
         autoComplete="off"
+        list="pokemons"
         {...input}
       />
     );
