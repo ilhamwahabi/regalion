@@ -8,13 +8,11 @@ import pokemon from "../assets/ts/name";
 
 class ComponentsNavbar extends Component<InjectedFormProps, {}> {
   onSearchPokemon = ({ search }: any) => {
-    const pokemonName = search[0].toUpperCase() + search.slice(1);
-
-    if (pokemon.includes(pokemonName))
+    if (pokemon.map(p => p.toLowerCase()).includes(search))
       (this.props as any).changePokemon(search);
   };
 
-  renderField = ({ input }: any) => {
+  renderField = ({ input, meta }: any) => {
     return (
       <Input
         type="text"
@@ -22,6 +20,7 @@ class ComponentsNavbar extends Component<InjectedFormProps, {}> {
         placeholder="Search any Pokémon"
         style={{ textAlign: "center", fontSize: "16px" }}
         autoComplete="off"
+        invalid={meta.active && !!meta.error}
         list="pokemons"
         {...input}
       />
@@ -46,7 +45,15 @@ class ComponentsNavbar extends Component<InjectedFormProps, {}> {
   }
 }
 
-const formWrapper = reduxForm({ form: "searchPokemon" })(ComponentsNavbar);
+const validate = ({ search }: any) => {
+  if (!pokemon.map(p => p.toLowerCase()).includes(search) && search)
+    return { search: "Invalid Pokémon Name" };
+};
+
+const formWrapper = reduxForm({
+  form: "searchPokemon",
+  validate: validate as any
+})(ComponentsNavbar);
 
 export default connect(
   null,
