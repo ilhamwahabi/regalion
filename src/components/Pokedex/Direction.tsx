@@ -22,13 +22,13 @@ const Direction = ({
       md="12"
       lg="2"
       className="d-flex flex-column justify-content-center text-center"
-      onClick={() => changePokemon(name)}
     >
       {name && (
         <div
           style={{ opacity, transition: ".25s opacity", cursor: "pointer" }}
           onMouseOver={e => setOpacity(1)}
           onMouseOut={e => setOpacity(0.5)}
+          onClick={() => changePokemon(name)}
         >
           <img width="75" src={sprite} alt={name} />
           <h5 className="text-white mt-2 mb-1">{name}</h5>

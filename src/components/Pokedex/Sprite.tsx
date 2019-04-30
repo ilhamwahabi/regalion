@@ -12,7 +12,7 @@ const Sprite = ({
   sprite: string;
 }) => {
   return (
-    <Col md="12" lg="4">
+    <Col md="12" lg="4" className="d-flex flex-column">
       <Row className="text-center" style={{ marginBottom: "20px" }}>
         <Col>
           <div className="d-flex justify-content-between align-items-end">
