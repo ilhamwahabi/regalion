@@ -8,7 +8,10 @@ import pokemon from "../assets/ts/name";
 
 class ComponentsNavbar extends Component<InjectedFormProps, {}> {
   onSearchPokemon = ({ search }: any) => {
-    if (pokemon.map(p => p.toLowerCase()).includes(search))
+    if (
+      pokemon.map(p => p.toLowerCase()).includes(search) &&
+      (this.props as any).name.toLowerCase() !== search
+    )
       (this.props as any).changePokemon(search);
   };
 
@@ -55,8 +58,14 @@ const formWrapper = reduxForm({
   validate: validate as any
 })(ComponentsNavbar);
 
+const mapStateToProps = (state: any) => {
+  const { pokemon, selectedForm } = state.pokemon;
+
+  return { name: pokemon[selectedForm].name };
+};
+
 export default connect(
-  null,
+  mapStateToProps,
   {
     changePokemon
   }
