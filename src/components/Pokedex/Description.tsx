@@ -65,7 +65,7 @@ const Description = ({
         <Row className="mt-3">
           <h4 className="m-auto">Evolution Line</h4>
         </Row>
-        <Row className="text-center m-3">
+        <Row className="text-center mt-3">
           {family.evolutionLine.length === 1 ? (
             <div className="h4 text-white mt-1" style={{ margin: "0 auto" }}>
               This Pokémon has no evolution line
@@ -78,7 +78,7 @@ const Description = ({
                 key={index}
               >
                 <img width="60" src={sprite} alt={name} />
-                <h6 className="mt-3 text-white">{name}</h6>
+                <h6 className="mt-3 mb-0 text-white">{name}</h6>
               </Col>
             ))
           )}

@@ -12,8 +12,8 @@ const Sprite = ({
   sprite: string;
 }) => {
   return (
-    <Col md="12" lg="4" className="d-flex flex-column">
-      <Row className="text-center" style={{ marginBottom: "20px" }}>
+    <Col md="12" lg="4" className="d-flex flex-column justify-content-between">
+      <Row className="text-center">
         <Col>
           <div className="d-flex justify-content-between align-items-end">
             <span
@@ -26,11 +26,7 @@ const Sprite = ({
           </div>
         </Col>
       </Row>
-      <Row className="text-center">
-        <Col>
-          <img style={{ maxHeight: "360px" }} src={sprite} alt={name} />
-        </Col>
-      </Row>
+      <img style={{ maxHeight: "75%" }} src={sprite} alt={name} />
     </Col>
   );
 };
