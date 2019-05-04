@@ -1,4 +1,4 @@
-import { greninja } from "../dummy";
+import { greninja } from "../assets/ts/greninja";
 
 const initialState = {
   pokemon: greninja,

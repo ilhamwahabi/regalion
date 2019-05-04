@@ -25,6 +25,33 @@ const Description = ({
   };
   changePokemon: Function;
 }) => {
+  const renderTypes = () => {
+    return (
+      <Row className="mb-3">
+        {types.map((type, index) => (
+          <Col key={index} className="text-center">
+            <Button color={type.toLowerCase()}>{type}</Button>
+          </Col>
+        ))}
+      </Row>
+    );
+  };
+
+  const renderHeightWeight = () => {
+    return (
+      <Row className="text-center my-3">
+        <Col>
+          <h4>Height</h4>
+          <div className="display-3 text-white">{height}</div>
+        </Col>
+        <Col>
+          <h4>Weight</h4>
+          <div className="display-3 text-white">{weight}</div>
+        </Col>
+      </Row>
+    );
+  };
+
   const renderAbilities = () => {
     return (
       <>
@@ -89,23 +116,8 @@ const Description = ({
 
   return (
     <Col md="12" lg="4" className="d-flex flex-column justify-content-center">
-      <Row className="mb-3">
-        {types.map((type, index) => (
-          <Col key={index} className="text-center">
-            <Button color={type.toLowerCase()}>{type}</Button>
-          </Col>
-        ))}
-      </Row>
-      <Row className="text-center my-3">
-        <Col>
-          <h4>Height</h4>
-          <div className="display-3 text-white">{height}</div>
-        </Col>
-        <Col>
-          <h4>Weight</h4>
-          <div className="display-3 text-white">{weight}</div>
-        </Col>
-      </Row>
+      {renderTypes()}
+      {renderHeightWeight()}
       {renderAbilities()}
       {renderEvolutionLine(name)}
     </Col>
