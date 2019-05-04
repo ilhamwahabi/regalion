@@ -3,8 +3,6 @@ import { css } from "@emotion/core";
 import { PulseLoader } from "react-spinners";
 import { connect } from "react-redux";
 
-import Backdrop from "./Backdrop";
-
 const override = css`
   position: fixed;
   top: 50%;
@@ -14,10 +12,7 @@ const override = css`
 `;
 
 const Spinner = ({ loading }: { loading: boolean }) => (
-  <>
-    <PulseLoader css={override as any} loading={loading} color="white" />
-    { loading && <Backdrop /> }
-  </>
+  <PulseLoader css={override as any} loading={loading} color="white" />
 );
 
 const mapStateToProps = ({ loading }: { loading: boolean }) => {

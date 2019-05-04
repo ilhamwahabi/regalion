@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import Navbar from "./Navbar";
 import Pokedex from "./Pokedex";
 import Spinner from "./Loading/Spinner";
+import Backdrop from "./Loading/Backdrop";
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
         <Pokedex />
         <Footer />
         <Spinner />
+        <Backdrop />
       </div>
     );
   }
