@@ -6,9 +6,7 @@ Pokedex app that built upon React (+Typescript) and Bootstrap. Deployed to Surge
 
 State management with Redux. With help by redux-thunk and redux-form.
 
-Use API from https://pokedevs.gitbook.io to serve data. Response being cached locally after first request with IndexedDB.
-
-Use [Blk• Design System React](https://github.com/creativetimofficial/blk-design-system-react) for project template from Creative Tim.
+`Suffix 'leon' is from Empoleon because that was my starter when I play Pokemon Platinum.`
 
 ## Usage
 
@@ -29,3 +27,11 @@ Or if you want to try on your machine:
 - Caching in client
 - Use Typescript properly
 - Fix font size issue with name and ability
+
+## License
+
+All content is © Nintendo, Game Freak, and The Pokémon Company.
+
+Use API from https://pokedevs.gitbook.io to serve data. Response is being cached both in front end and back end.
+
+Use [Blk• Design System React](https://github.com/creativetimofficial/blk-design-system-react) for project template from Creative Tim.
