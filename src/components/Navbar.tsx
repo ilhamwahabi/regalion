@@ -4,12 +4,12 @@ import { Field, reduxForm, InjectedFormProps } from "redux-form";
 import { connect } from "react-redux";
 
 import { changePokemon } from "../actions";
-import pokemon from "../assets/ts/name";
+import { pokemonNames } from "../assets/ts/name";
 
 class ComponentsNavbar extends Component<InjectedFormProps, {}> {
   onSearchPokemon = ({ search }: any) => {
     if (
-      pokemon.map(p => p.toLowerCase()).includes(search) &&
+      pokemonNames.map(p => p.toLowerCase()).includes(search) &&
       (this.props as any).name.toLowerCase() !== search
     )
       (this.props as any).changePokemon(search);
@@ -49,7 +49,12 @@ class ComponentsNavbar extends Component<InjectedFormProps, {}> {
 }
 
 const validate = ({ search }: any) => {
-  if (!pokemon.map(p => p.toLowerCase()).includes(search) && search)
+  if (
+    !pokemonNames
+      .map(pokemonName => pokemonName.toLowerCase())
+      .includes(search) &&
+    search
+  )
     return { search: "Invalid Pokémon Name" };
 };
 

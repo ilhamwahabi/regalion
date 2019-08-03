@@ -1,7 +1,11 @@
-import { greninja } from "../assets/ts/greninja";
+import { IPokemon } from "../types";
+import { getRandomPokemon } from "../assets/ts";
 
-const initialState = {
-  pokemon: greninja,
+const initialState: {
+  pokemon: IPokemon[];
+  selectedForm: number;
+} = {
+  pokemon: getRandomPokemon(),
   selectedForm: 0
 };
 

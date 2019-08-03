@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
+import { connect } from "react-redux";
 
 import Footer from "./Footer";
 import Navbar from "./Navbar";
@@ -6,12 +7,23 @@ import Pokedex from "./Pokedex";
 import Spinner from "./Loading/Spinner";
 import Backdrop from "./Loading/Backdrop";
 
-class App extends Component {
+import { IPalettes } from "../types";
+
+interface IAppProps {
+  palettes: IPalettes;
+}
+
+class App extends PureComponent<IAppProps> {
   render() {
+    const { palettes } = this.props;
+
     return (
       <div
         className="d-flex flex-column justify-content-between"
-        style={{ height: "100vh" }}
+        style={{
+          height: "100vh",
+          backgroundColor: `rgb(${palettes.darkMuted})`
+        }}
       >
         <Navbar />
         <Pokedex />
@@ -23,4 +35,10 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state: any) => {
+  const { pokemon, selectedForm } = state.pokemon;
+
+  return { palettes: pokemon[selectedForm].palettes };
+};
+
+export default connect(mapStateToProps)(App);
