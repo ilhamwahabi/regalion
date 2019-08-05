@@ -22,7 +22,8 @@ class App extends PureComponent<IAppProps> {
         className="d-flex flex-column justify-content-between"
         style={{
           height: "100vh",
-          backgroundColor: `rgb(${palettes.darkMuted})`
+          backgroundColor: `rgb(${palettes.darkMuted})`,
+          transition: "background-color 2s"
         }}
       >
         <Navbar />
