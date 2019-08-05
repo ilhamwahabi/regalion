@@ -15,14 +15,22 @@ const Sprite = ({
     <Col md="12" lg="4" className="d-flex flex-column justify-content-between">
       <Row className="text-center">
         <Col>
-          <div className="d-flex justify-content-between align-items-end">
-            <span
-              style={{ paddingBottom: "5px", borderBottom: "1px solid white" }}
+          <div className="d-flex justify-content-between align-items-end flex-wrap">
+            <p
+              style={{
+                paddingBottom: "5px",
+                borderBottom: "2.5px solid white"
+              }}
               className="display-1 text-white"
             >
               {name}
-            </span>
-            <span className="display-3">#{number}</span>
+            </p>
+            <p
+              style={{ marginLeft: "15px", flex: 1, textAlign: "right" }}
+              className="display-3"
+            >
+              #{number}
+            </p>
           </div>
         </Col>
       </Row>
