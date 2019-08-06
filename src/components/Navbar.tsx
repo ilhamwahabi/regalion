@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import { Navbar, Container, Input, Form, FormGroup } from "reactstrap";
 import { Field, reduxForm, InjectedFormProps } from "redux-form";
 import { connect } from "react-redux";
-/** @jsx jsx */
-import { css, jsx } from "@emotion/core";
+import { css } from "emotion";
 
 import { changePokemon } from "../actions";
 import { pokemonNames } from "../assets/ts/name";
@@ -39,7 +38,7 @@ class ComponentsNavbar extends Component<
         name="pokemon"
         placeholder="Search any Pokémon"
         spellCheck={false}
-        css={css`
+        className={css`
           text-align: center;
           font-size: 16px;
           color: rgb(${palettes.lightMuted});
