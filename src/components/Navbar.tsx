@@ -19,7 +19,6 @@ class ComponentsNavbar extends Component<
   INavbarProps & InjectedFormProps<{}, INavbarProps>
 > {
   onSearchPokemon = ({ search }: any) => {
-    console.log(search);
     if (
       pokemonNames.map(p => p.toLowerCase()).includes(search.toLowerCase()) &&
       this.props.name.toLowerCase() !== search
@@ -45,6 +44,7 @@ class ComponentsNavbar extends Component<
           font-size: 16px;
           color: rgb(${palettes.lightMuted});
           border-color: ${borderColor} !important;
+          transition: color 1s, border-color 1s;
           &::placeholder {
             color: rgb(${palettes.lightMuted});
           }
@@ -58,6 +58,8 @@ class ComponentsNavbar extends Component<
   };
 
   render() {
+    const { palettes } = this.props;
+
     return (
       <Navbar className="navbar-transparent" expand="lg">
         <Container>
@@ -66,7 +68,11 @@ class ComponentsNavbar extends Component<
             onSubmit={this.props.handleSubmit(this.onSearchPokemon)}
           >
             <FormGroup>
-              <Field name="search" component={this.renderField} />
+              <Field
+                name="search"
+                component={this.renderField}
+                props={this.props}
+              />
             </FormGroup>
           </Form>
         </Container>
@@ -85,11 +91,6 @@ const validate = ({ search }: any) => {
     return { search: "Invalid Pokémon Name" };
 };
 
-const formWrapper = reduxForm<{}, INavbarProps>({
-  form: "searchPokemon",
-  validate: validate as any
-})(ComponentsNavbar);
-
 const mapStateToProps = (state: any) => {
   const { pokemon, selectedForm } = state.pokemon;
 
@@ -104,4 +105,9 @@ export default connect(
   {
     changePokemon
   }
-)(formWrapper);
+)(
+  reduxForm<{}, INavbarProps>({
+    form: "searchPokemon",
+    validate: validate as any
+  })(ComponentsNavbar)
+);
