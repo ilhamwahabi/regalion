@@ -19,8 +19,9 @@ class ComponentsNavbar extends Component<
   INavbarProps & InjectedFormProps<{}, INavbarProps>
 > {
   onSearchPokemon = ({ search }: any) => {
+    console.log(search);
     if (
-      pokemonNames.map(p => p.toLowerCase()).includes(search) &&
+      pokemonNames.map(p => p.toLowerCase()).includes(search.toLowerCase()) &&
       this.props.name.toLowerCase() !== search
     )
       this.props.changePokemon(search);
@@ -78,7 +79,7 @@ const validate = ({ search }: any) => {
   if (
     !pokemonNames
       .map(pokemonName => pokemonName.toLowerCase())
-      .includes(search) &&
+      .includes(search && search.toLowerCase()) &&
     search
   )
     return { search: "Invalid Pokémon Name" };
