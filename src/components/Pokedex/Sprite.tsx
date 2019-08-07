@@ -15,7 +15,7 @@ const Sprite = ({
     <Col md="12" lg="4" className="d-flex flex-column justify-content-between">
       <Row className="text-center">
         <Col>
-          <div className="d-flex justify-content-between align-items-end flex-wrap">
+          <div className="d-flex justify-content-between align-items-end flex-wrap mb-4">
             <p
               style={{
                 paddingBottom: "5px",
@@ -34,7 +34,13 @@ const Sprite = ({
           </div>
         </Col>
       </Row>
-      <img style={{ maxHeight: "75%" }} src={sprite} alt={name} />
+      <Row>
+        <Col>
+          <div className="d-flex justify-content-center align-items-center">
+            <img style={{ maxWidth: "80%" }} src={sprite} alt={name} />
+          </div>
+        </Col>
+      </Row>
     </Col>
   );
 };
