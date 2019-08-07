@@ -34,8 +34,8 @@ const Sprite = ({
           </div>
         </Col>
       </Row>
-      <Row>
-        <Col>
+      <Row style={{ flex: 1 }}>
+        <Col className="d-flex justify-content-center align-items-center">
           <div className="d-flex justify-content-center align-items-center">
             <img style={{ maxWidth: "80%" }} src={sprite} alt={name} />
           </div>
