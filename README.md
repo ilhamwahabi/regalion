@@ -2,11 +2,15 @@
 
 ## Description
 
-Pokedex app that built upon React (+Typescript) and Bootstrap. Deployed to Surge.
+Pokedex app that built upon React and Typescript.
 
-State management with Redux. With help by redux-thunk and redux-form.
+Bootstrap and emotion for styling.
 
-`Suffix 'leon' is from Empoleon because that was my starter when I play Pokemon Platinum.`
+Redux for state management. With help by redux-thunk and redux-form.
+
+Deployed to Surge.
+
+`Suffix 'leon' is from Empoleon because that was my starter when I play Pokémon Platinum.`
 
 ## Usage
 
@@ -21,12 +25,17 @@ Or if you want to try on your machine:
 
 ## Todo
 
-- Fix problem for certain pokemon (ex: Eevee)
-- Able switch to another form
-- Make responsive
-- Caching in client
-- Use Typescript properly
-- Fix font size issue with name and ability
+- [ ] Fix problem for certain Pokémon (ex: Eevee)
+- [ ] Able switch to another form
+- [ ] Make responsive
+- [ ] Caching in client
+- [ ] Use Typescript properly
+- [x] Fix font size issue with name and ability
+- [ ] Fix slow loaded image
+- [ ] Add fuzzy search Pokémon
+- [ ] Add animation
+- [ ] Use serviceworker
+- [ ] Transform template to my own component
 
 ## License
 
