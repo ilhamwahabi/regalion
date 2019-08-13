@@ -1,4 +1,4 @@
-import { changePokemon } from "./pokemonAction";
+import { changePokemon, changeSelectedForm } from "./pokemonAction";
 import { startLoading, finishLoading } from "./loadingActions";
 
-export { changePokemon, startLoading, finishLoading };
+export { changePokemon, changeSelectedForm, startLoading, finishLoading };

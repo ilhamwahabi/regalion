@@ -12,3 +12,8 @@ export const changePokemon = (pokemonNameOrIndex: string | number) => async (
   dispatch(reset("searchPokemon"));
   dispatch({ type: "FINISH_LOADING" });
 };
+
+export const changeSelectedForm = (index: number) => ({
+  type: "CHANGE_SELECTED_FORM",
+  payload: index
+});

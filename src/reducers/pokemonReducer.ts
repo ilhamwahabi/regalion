@@ -13,8 +13,11 @@ const pokemonReducer = (
   state = initialState,
   action: { type: string; payload: any }
 ) => {
-  if (action.type === "CHANGE_POKEMON") {
-    return { pokemon: action.payload, selectedForm: 0 };
+  switch (action.type) {
+    case "CHANGE_POKEMON":
+      return { pokemon: action.payload, selectedForm: 0 };
+    case "CHANGE_SELECTED_FORM":
+      return { ...state, selectedForm: action.payload };
   }
   return state;
 };

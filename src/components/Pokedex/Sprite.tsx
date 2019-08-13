@@ -2,15 +2,23 @@ import React from "react";
 import { Row, Col } from "reactstrap";
 import { connect } from "react-redux";
 
+import { changeSelectedForm } from "../../actions";
+
+import { IPokemon } from "../../types";
+
+interface ISpriteProps {
+  pokemon: IPokemon[];
+  selectedForm: number;
+  changeSelectedForm(index: number): void;
+}
+
 const Sprite = ({
-  name,
-  number,
-  sprite
-}: {
-  name: string;
-  number: string;
-  sprite: string;
-}) => {
+  pokemon,
+  selectedForm,
+  changeSelectedForm
+}: ISpriteProps) => {
+  const { name, number, sprite } = pokemon[selectedForm];
+
   return (
     <Col md="12" lg="4" className="d-flex flex-column justify-content-between">
       <Row className="text-center">
@@ -41,6 +49,31 @@ const Sprite = ({
           </div>
         </Col>
       </Row>
+      <div
+        className="position-absolute d-flex"
+        style={{ bottom: 0, left: 10, maxWidth: "10%" }}
+      >
+        {pokemon.map(
+          (pokemon, index) =>
+            index !== selectedForm && (
+              <img
+                key={index}
+                src={pokemon.sprite}
+                alt={pokemon.name}
+                title={pokemon.name}
+                style={{
+                  margin: "0 10px",
+                  cursor: "pointer",
+                  padding: 10,
+                  boxSizing: "content-box",
+                  backgroundColor: `rgba(${pokemon.palettes.lightMuted}, 0.25)`,
+                  borderRadius: "50%"
+                }}
+                onClick={() => changeSelectedForm(index)}
+              />
+            )
+        )}
+      </div>
     </Col>
   );
 };
@@ -49,10 +82,12 @@ const mapStateToProps = (state: any) => {
   const { pokemon, selectedForm } = state.pokemon;
 
   return {
-    name: pokemon[selectedForm].name,
-    number: pokemon[selectedForm].number,
-    sprite: pokemon[selectedForm].sprite
+    pokemon,
+    selectedForm
   };
 };
 
-export default connect(mapStateToProps)(Sprite);
+export default connect(
+  mapStateToProps,
+  { changeSelectedForm }
+)(Sprite);
