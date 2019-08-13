@@ -28,6 +28,7 @@ class ComponentsNavbar extends Component<
   renderField = ({ input, meta }: any) => {
     const { palettes } = this.props;
 
+    const textColor = `rgb(${palettes.lightMuted})`;
     const borderColor = meta.valid
       ? `rgb(${palettes.lightMuted})`
       : `rgb(${palettes.darkVibrant})`;
@@ -41,11 +42,12 @@ class ComponentsNavbar extends Component<
         className={css`
           text-align: center;
           font-size: 16px;
-          color: rgb(${palettes.lightMuted});
+          color: ${textColor};
           border-color: ${borderColor} !important;
-          transition: color 1s, border-color 1s;
+          transition: border-color 1s;
           &::placeholder {
-            color: rgb(${palettes.lightMuted});
+            color: ${textColor};
+            transition: color 1s;
           }
         `}
         autoComplete="off"
@@ -57,8 +59,6 @@ class ComponentsNavbar extends Component<
   };
 
   render() {
-    const { palettes } = this.props;
-
     return (
       <Navbar className="navbar-transparent" expand="lg">
         <Container>
