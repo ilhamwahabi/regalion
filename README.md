@@ -4,7 +4,7 @@
 
 Pokedex app that built upon React and Typescript.
 
-Bootstrap and emotion for styling.
+Reactstrap (with Bootstrap) and emotion for styling.
 
 Redux for state management. With help by redux-thunk and redux-form.
 
@@ -26,7 +26,7 @@ Or if you want to try on your machine:
 ## Todo
 
 - [ ] Fix problem for certain Pokémon (ex: Eevee)
-- [ ] Able switch to another form
+- [x] Able switch to another form
 - [ ] Make responsive
 - [ ] Caching in client
 - [ ] Use Typescript properly
@@ -36,6 +36,8 @@ Or if you want to try on your machine:
 - [ ] Add animation
 - [ ] Use serviceworker
 - [ ] Transform template to my own component
+- [ ] Ensure using single / double line for pokemon and index component
+- [ ] Fix long name problem
 
 ## License
 
