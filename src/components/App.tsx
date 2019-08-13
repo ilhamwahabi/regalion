@@ -23,7 +23,7 @@ class App extends PureComponent<IAppProps> {
         style={{
           height: "100vh",
           backgroundColor: `rgb(${palettes.darkMuted})`,
-          transition: "background-color 2s",
+          transition: "background-color 1s",
           overflow: "hidden"
         }}
       >
