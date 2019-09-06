@@ -1,19 +1,78 @@
 import React from "react";
-import { css } from "@emotion/core";
-import { PulseLoader } from "react-spinners";
+import { css } from "emotion";
 import { connect } from "react-redux";
 
-const override = css`
+const spinnerStyle = css`
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
+
+  div {
+    position: absolute;
+    top: 27px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #fff;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+  }
+  div:nth-child(1) {
+    left: 6px;
+    animation: lds-ellipsis1 0.6s infinite;
+  }
+  div:nth-child(2) {
+    left: 6px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  div:nth-child(3) {
+    left: 26px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  div:nth-child(4) {
+    left: 45px;
+    animation: lds-ellipsis3 0.6s infinite;
+  }
+  @keyframes lds-ellipsis1 {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  @keyframes lds-ellipsis3 {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(0);
+    }
+  }
+  @keyframes lds-ellipsis2 {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(19px, 0);
+    }
+  }
 `;
 
-const Spinner = ({ loading }: { loading: boolean }) => (
-  <PulseLoader css={override as any} loading={loading} color="white" />
-);
+const Spinner = ({ loading }: { loading: boolean }) =>
+  loading ? (
+    <div className={spinnerStyle}>
+      <div />
+      <div />
+      <div />
+      <div />
+    </div>
+  ) : null;
 
 const mapStateToProps = ({ loading }: { loading: boolean }) => {
   return { loading };
