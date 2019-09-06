@@ -20,6 +20,7 @@ const backdropStyle = css`
   position: fixed;
   width: 100vw;
   height: 100%;
+  z-index: 20;
 `;
 
 const mapStateToProps = ({ loading }: { loading: boolean }) => {

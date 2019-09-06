@@ -19,34 +19,39 @@ const Sprite = (props: ISpriteProps) => {
 
   return (
     <Col md="12" lg="4" className="d-flex flex-column justify-content-between">
-      <Row className="text-center">
-        <Col>
-          <div className="d-flex justify-content-between align-items-end flex-wrap mb-4">
-            <p
-              style={{
-                paddingBottom: "5px",
-                borderBottom: "2.5px solid white"
-              }}
-              className="display-1 text-white"
-            >
-              {name}
-            </p>
-            <p
-              style={{ marginLeft: "15px", flex: 1, textAlign: "right" }}
-              className="display-3"
-            >
-              #{number}
-            </p>
-          </div>
-        </Col>
-      </Row>
       <Row style={{ flex: 1 }}>
         <Col className="d-flex justify-content-center align-items-center">
           <div className="d-flex justify-content-center align-items-center">
-            <img style={{ maxWidth: "80%" }} src={sprite} alt={name} />
+            <img
+              style={{ maxWidth: "80%", zIndex: 1 }}
+              src={sprite}
+              alt={name}
+            />
           </div>
         </Col>
       </Row>
+      <p
+        style={{
+          paddingBottom: 5,
+          top: 0,
+          left: 10
+        }}
+        className="position-absolute display-2 text-white"
+      >
+        {name}
+      </p>
+      <p
+        style={{
+          marginLeft: "15px",
+          flex: 1,
+          textAlign: "right",
+          bottom: 0,
+          right: 10
+        }}
+        className="position-absolute display-4"
+      >
+        #{number}
+      </p>
       <div
         className="position-absolute d-flex"
         style={{ bottom: 0, left: 10, maxWidth: "10%" }}

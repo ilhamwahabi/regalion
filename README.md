@@ -26,17 +26,12 @@ Or if you want to try on your machine:
 ## Todo
 
 - [ ] Fix problem for certain Pokémon (ex: Eevee)
-- [x] Able switch to another form
 - [ ] Make responsive
-- [x] Persist in client
 - [ ] Use Typescript properly
-- [x] Fix font size issue with name and ability
 - [ ] Fix slow loaded image
 - [ ] Add fuzzy search Pokémon
 - [ ] Add animation
 - [ ] Transform template to my own component
-- [ ] Ensure using single / double line for pokemon and index component
-- [ ] Fix long name problem
 
 ## License
 
