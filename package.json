@@ -49,6 +49,7 @@
     "reactstrap": "7.1.0",
     "redux": "^4.0.1",
     "redux-form": "^8.2.0",
+    "redux-persist": "^6.0.0",
     "typescript": "^3.4.4"
   },
   "scripts": {

@@ -4,10 +4,9 @@ import { connect } from "react-redux";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import Pokedex from "./Pokedex";
-import Spinner from "./Loading/Spinner";
-import Backdrop from "./Loading/Backdrop";
 
 import { IPalettes } from "../types";
+import LoadingScreen from "./LoadingScreen";
 
 interface IAppProps {
   palettes: IPalettes;
@@ -29,8 +28,7 @@ const App = (props: IAppProps) => {
       <Navbar />
       <Pokedex />
       <Footer />
-      <Spinner />
-      <Backdrop />
+      <LoadingScreen />
     </div>
   );
 };
