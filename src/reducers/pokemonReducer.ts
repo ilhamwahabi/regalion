@@ -1,23 +1,40 @@
 import { IPokemon } from "../types";
-import { getRandomPokemon } from "../assets/ts";
+import { getInitialRandomPokemon } from "../assets/ts";
 
-const initialState: {
-  pokemon: IPokemon[];
-  selectedForm: number;
-} = {
-  pokemon: getRandomPokemon(),
-  selectedForm: 0
+const getInitialState = (): {
+  pokemons: { [key: string]: IPokemon[] };
+  currentPokemon: string;
+  currentForm: number;
+} => {
+  const { currentPokemon, randomPokemon } = getInitialRandomPokemon();
+
+  return {
+    pokemons: { [currentPokemon]: randomPokemon },
+    currentPokemon: currentPokemon,
+    currentForm: 0
+  };
 };
 
 const pokemonReducer = (
-  state = initialState,
+  state = getInitialState(),
   action: { type: string; payload: any }
 ) => {
   switch (action.type) {
     case "CHANGE_POKEMON":
-      return { pokemon: action.payload, selectedForm: 0 };
+      return {
+        ...state,
+        pokemons: {
+          ...state.pokemons,
+          [action.payload[0].number]: action.payload
+        },
+        currentPokemon: action.payload[0].number,
+        currentForm: 0
+      };
     case "CHANGE_SELECTED_FORM":
-      return { ...state, selectedForm: action.payload };
+      return {
+        ...state,
+        currentForm: action.payload
+      };
   }
   return state;
 };

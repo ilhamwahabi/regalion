@@ -6,6 +6,7 @@ import { changePokemon } from "../../actions";
 
 interface IDescriptionProps {
   name: string;
+  number: string;
   types: string[];
   height: string;
   weight: string;
@@ -13,7 +14,7 @@ interface IDescriptionProps {
   family: {
     id: number;
     evolutionStage: number;
-    evolutionLine: { name: string; sprite: string }[];
+    evolutionLine: { name: string; number: string; sprite: string }[];
   };
   changePokemon: Function;
 }
@@ -21,6 +22,7 @@ interface IDescriptionProps {
 const Description = (props: IDescriptionProps) => {
   const {
     name,
+    number,
     types,
     height,
     weight,
@@ -102,9 +104,9 @@ const Description = (props: IDescriptionProps) => {
               This Pokémon has no evolution line
             </div>
           ) : (
-            family.evolutionLine.map(({ name, sprite }, index) => (
+            family.evolutionLine.map(({ name, number: i, sprite }, index) => (
               <Col
-                onClick={() => pokemonName !== name && changePokemon(name)}
+                onClick={() => pokemonName !== name && changePokemon(i)}
                 style={{ cursor: "pointer" }}
                 key={index}
               >
@@ -129,15 +131,16 @@ const Description = (props: IDescriptionProps) => {
 };
 
 const mapStateToProps = (state: any) => {
-  const { pokemon, selectedForm } = state.pokemon;
+  const { pokemons, currentPokemon, currentForm } = state.pokemon;
 
   return {
-    name: pokemon[selectedForm].name,
-    types: pokemon[selectedForm].types,
-    height: pokemon[selectedForm].height,
-    weight: pokemon[selectedForm].weight,
-    abilities: pokemon[selectedForm].abilities,
-    family: pokemon[selectedForm].family
+    name: pokemons[currentPokemon][currentForm].name,
+    number: pokemons[currentPokemon][currentForm].number,
+    types: pokemons[currentPokemon][currentForm].types,
+    height: pokemons[currentPokemon][currentForm].height,
+    weight: pokemons[currentPokemon][currentForm].weight,
+    abilities: pokemons[currentPokemon][currentForm].abilities,
+    family: pokemons[currentPokemon][currentForm].family
   };
 };
 

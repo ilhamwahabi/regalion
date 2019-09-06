@@ -102,11 +102,11 @@ const validate: Validator = value => {
 };
 
 const mapStateToProps = (state: any) => {
-  const { pokemon, selectedForm } = state.pokemon;
+  const { pokemons, currentPokemon, currentForm } = state.pokemon;
 
   return {
-    name: pokemon[selectedForm].name,
-    palettes: pokemon[selectedForm].palettes
+    name: pokemons[currentPokemon][currentForm].name,
+    palettes: pokemons[currentPokemon][currentForm].palettes
   };
 };
 

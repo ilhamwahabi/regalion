@@ -34,9 +34,9 @@ const App = (props: IAppProps) => {
 };
 
 const mapStateToProps = (state: any) => {
-  const { pokemon, selectedForm } = state.pokemon;
+  const { pokemons, currentPokemon, currentForm } = state.pokemon;
 
-  return { palettes: pokemon[selectedForm].palettes };
+  return { palettes: pokemons[currentPokemon][currentForm].palettes };
 };
 
 export default connect(mapStateToProps)(App);

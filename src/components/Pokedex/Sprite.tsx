@@ -2,20 +2,20 @@ import React from "react";
 import { Row, Col } from "reactstrap";
 import { connect } from "react-redux";
 
-import { changeSelectedForm } from "../../actions";
+import { changeCurrentForm } from "../../actions";
 
 import { IPokemon } from "../../types";
 
 interface ISpriteProps {
   pokemon: IPokemon[];
-  selectedForm: number;
-  changeSelectedForm(index: number): void;
+  currentForm: number;
+  changeCurrentForm(index: number): void;
 }
 
 const Sprite = (props: ISpriteProps) => {
-  const { pokemon, selectedForm, changeSelectedForm } = props;
+  const { pokemon, currentForm, changeCurrentForm } = props;
 
-  const { name, number, sprite } = pokemon[selectedForm];
+  const { name, number, sprite } = pokemon[currentForm];
 
   return (
     <Col md="12" lg="4" className="d-flex flex-column justify-content-between">
@@ -53,7 +53,7 @@ const Sprite = (props: ISpriteProps) => {
       >
         {pokemon.map(
           (pokemon, index) =>
-            index !== selectedForm && (
+            index !== currentForm && (
               <img
                 key={index}
                 src={pokemon.sprite}
@@ -67,7 +67,7 @@ const Sprite = (props: ISpriteProps) => {
                   backgroundColor: `rgba(${pokemon.palettes.lightMuted}, 0.25)`,
                   borderRadius: "50%"
                 }}
-                onClick={() => changeSelectedForm(index)}
+                onClick={() => changeCurrentForm(index)}
               />
             )
         )}
@@ -77,15 +77,15 @@ const Sprite = (props: ISpriteProps) => {
 };
 
 const mapStateToProps = (state: any) => {
-  const { pokemon, selectedForm } = state.pokemon;
+  const { pokemons, currentPokemon, currentForm } = state.pokemon;
 
   return {
-    pokemon,
-    selectedForm
+    pokemon: pokemons[currentPokemon],
+    currentForm
   };
 };
 
 export default connect(
   mapStateToProps,
-  { changeSelectedForm }
+  { changeCurrentForm }
 )(Sprite);

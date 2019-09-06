@@ -27,7 +27,7 @@ const Direction = (props: IDirectionProps) => {
           style={{ opacity, transition: ".25s opacity", cursor: "pointer" }}
           onMouseOver={e => setOpacity(1)}
           onMouseOut={e => setOpacity(0.5)}
-          onClick={() => changePokemon(name)}
+          onClick={() => changePokemon(number)}
         >
           <img width="75" src={sprite} alt={name} />
           <h5 className="text-white mt-2 mb-1">{name}</h5>
@@ -39,12 +39,12 @@ const Direction = (props: IDirectionProps) => {
 };
 
 const mapStateToProps = (state: any, { type }: any) => {
-  const { pokemon, selectedForm } = state.pokemon;
+  const { pokemons, currentPokemon, currentForm } = state.pokemon;
 
   return {
-    sprite: pokemon[selectedForm][type].sprite,
-    name: pokemon[selectedForm][type].name,
-    number: pokemon[selectedForm][type].number
+    sprite: pokemons[currentPokemon][currentForm][type].sprite,
+    name: pokemons[currentPokemon][currentForm][type].name,
+    number: pokemons[currentPokemon][currentForm][type].number
   };
 };
 

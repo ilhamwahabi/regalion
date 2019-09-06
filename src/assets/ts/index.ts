@@ -6,7 +6,10 @@ import { genesect } from "./genesect";
 
 import { IPokemon } from "../../types";
 
-const getRandomPokemon = (): IPokemon[] => {
+const getInitialRandomPokemon = (): {
+  randomPokemon: IPokemon[];
+  currentPokemon: string;
+} => {
   const initialPokemons = [
     bulbasaur,
     tyranitar,
@@ -15,7 +18,9 @@ const getRandomPokemon = (): IPokemon[] => {
     genesect
   ];
 
-  return initialPokemons[Math.floor(Math.random() * 5)];
+  const randomPokemon = initialPokemons[Math.floor(Math.random() * 5)];
+
+  return { randomPokemon, currentPokemon: randomPokemon[0].number };
 };
 
 export {
@@ -24,5 +29,5 @@ export {
   metagross,
   magmortar,
   genesect,
-  getRandomPokemon
+  getInitialRandomPokemon
 };
