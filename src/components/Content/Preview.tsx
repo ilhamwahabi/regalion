@@ -11,7 +11,7 @@ interface IDirectionProps {
   changePokemon: Function;
 }
 
-const Direction = (props: IDirectionProps) => {
+const Preview = (props: IDirectionProps) => {
   const { sprite, name, number, changePokemon } = props;
 
   const [opacity, setOpacity] = useState(0.5);
@@ -51,4 +51,4 @@ const mapStateToProps = (state: any, { type }: any) => {
 export default connect(
   mapStateToProps,
   { changePokemon }
-)(Direction);
+)(Preview);

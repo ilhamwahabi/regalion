@@ -10,7 +10,7 @@ Redux for state management. With help by redux-thunk, redux-persist and redux-fo
 
 Deployed to Surge.
 
-`Suffix 'leon' is from Empoleon because that was my starter when I play Pokémon Platinum.`
+`Suffix 'leon' is come from Empoleon name because that was my starter Pokémon when I play Pokémon Platinum. And that was still one of my favorite game` :heart_eyes:
 
 ## Usage
 

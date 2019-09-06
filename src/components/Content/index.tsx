@@ -1,18 +1,18 @@
 import React from "react";
 import { Container, Row } from "reactstrap";
 
-import Sprite from "./Pokedex/Sprite";
-import Description from "./Pokedex/Description";
-import Direction from "./Pokedex/Direction";
+import Main from "./Main";
+import Description from "./Description";
+import Preview from "./Preview";
 
 const Pokedex = () => {
   return (
     <Container fluid={true}>
       <Row>
-        <Direction type="previous" />
-        <Sprite />
+        <Preview type="previous" />
+        <Main />
         <Description />
-        <Direction type="next" />
+        <Preview type="next" />
       </Row>
     </Container>
   );

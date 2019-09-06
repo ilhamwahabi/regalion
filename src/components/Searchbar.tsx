@@ -20,7 +20,7 @@ interface INavbarProps {
   changePokemon(pokemonNameOrIndex: number | string): void;
 }
 
-class ComponentsNavbar extends Component<
+class Searchbar extends Component<
   INavbarProps & InjectedFormProps<{}, INavbarProps>
 > {
   onSearchPokemon = (submitProps: any) => {
@@ -119,5 +119,5 @@ export default connect(
   reduxForm<{}, INavbarProps>({
     form: "searchPokemon",
     validate
-  })(ComponentsNavbar)
+  })(Searchbar)
 );

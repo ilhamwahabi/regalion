@@ -2,11 +2,11 @@ import React from "react";
 import { connect } from "react-redux";
 
 import Footer from "./Footer";
-import Navbar from "./Navbar";
-import Pokedex from "./Pokedex";
+import Searchbar from "./Searchbar";
+import Content from "./Content";
+import Loading from "./Loading";
 
 import { IPalettes } from "../types";
-import LoadingScreen from "./LoadingScreen";
 
 interface IAppProps {
   palettes: IPalettes;
@@ -25,10 +25,10 @@ const App = (props: IAppProps) => {
         overflow: "hidden"
       }}
     >
-      <Navbar />
-      <Pokedex />
+      <Searchbar />
+      <Content />
       <Footer />
-      <LoadingScreen />
+      <Loading />
     </div>
   );
 };

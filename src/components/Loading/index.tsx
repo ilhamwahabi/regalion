@@ -1,7 +1,7 @@
 import React from "react";
 
-import Spinner from "./Loading/Spinner";
-import Backdrop from "./Loading/Backdrop";
+import Spinner from "./Spinner";
+import Backdrop from "./Backdrop";
 
 const LoadingScreen = () => {
   return (

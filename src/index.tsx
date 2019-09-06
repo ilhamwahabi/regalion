@@ -7,7 +7,7 @@ import "assets/scss/blk-design-system-react.scss?v=1.0.0";
 
 import App from "./components/App";
 import { store, persistor } from "./configureStore";
-import LoadingScreen from "./components/LoadingScreen";
+import LoadingScreen from "./components/Loading";
 
 ReactDOM.render(
   <Provider store={store}>
