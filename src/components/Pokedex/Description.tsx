@@ -4,15 +4,7 @@ import { connect } from "react-redux";
 
 import { changePokemon } from "../../actions";
 
-const Description = ({
-  name,
-  types,
-  height,
-  weight,
-  abilities,
-  family,
-  changePokemon
-}: {
+interface IDescriptionProps {
   name: string;
   types: string[];
   height: string;
@@ -24,7 +16,19 @@ const Description = ({
     evolutionLine: { name: string; sprite: string }[];
   };
   changePokemon: Function;
-}) => {
+}
+
+const Description = (props: IDescriptionProps) => {
+  const {
+    name,
+    types,
+    height,
+    weight,
+    abilities,
+    family,
+    changePokemon
+  } = props;
+
   const renderTypes = () => {
     return (
       <Row className="mb-3">

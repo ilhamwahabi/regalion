@@ -2,9 +2,27 @@ import React from "react";
 import { css } from "emotion";
 import { connect } from "react-redux";
 
+interface ISpinnerProps {
+  loading: boolean;
+}
+
+const Spinner = (props: ISpinnerProps) => {
+  const { loading } = props;
+
+  if (!loading) return null;
+
+  return (
+    <div className={spinnerStyle}>
+      <div />
+      <div />
+      <div />
+      <div />
+    </div>
+  );
+};
+
 const spinnerStyle = css`
   display: inline-block;
-  position: relative;
   width: 64px;
   height: 64px;
   position: fixed;
@@ -63,16 +81,6 @@ const spinnerStyle = css`
     }
   }
 `;
-
-const Spinner = ({ loading }: { loading: boolean }) =>
-  loading ? (
-    <div className={spinnerStyle}>
-      <div />
-      <div />
-      <div />
-      <div />
-    </div>
-  ) : null;
 
 const mapStateToProps = ({ loading }: { loading: boolean }) => {
   return { loading };

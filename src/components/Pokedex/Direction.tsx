@@ -4,17 +4,16 @@ import { connect } from "react-redux";
 
 import { changePokemon } from "../../actions";
 
-const Direction = ({
-  sprite,
-  name,
-  number,
-  changePokemon
-}: {
+interface IDirectionProps {
   sprite: string;
   name: string;
   number: string;
   changePokemon: Function;
-}) => {
+}
+
+const Direction = (props: IDirectionProps) => {
+  const { sprite, name, number, changePokemon } = props;
+
   const [opacity, setOpacity] = useState(0.5);
 
   return (

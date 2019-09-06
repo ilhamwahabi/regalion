@@ -12,11 +12,9 @@ interface ISpriteProps {
   changeSelectedForm(index: number): void;
 }
 
-const Sprite = ({
-  pokemon,
-  selectedForm,
-  changeSelectedForm
-}: ISpriteProps) => {
+const Sprite = (props: ISpriteProps) => {
+  const { pokemon, selectedForm, changeSelectedForm } = props;
+
   const { name, number, sprite } = pokemon[selectedForm];
 
   return (

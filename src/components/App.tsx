@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React from "react";
 import { connect } from "react-redux";
 
 import Footer from "./Footer";
@@ -13,29 +13,27 @@ interface IAppProps {
   palettes: IPalettes;
 }
 
-class App extends PureComponent<IAppProps> {
-  render() {
-    const { palettes } = this.props;
+const App = (props: IAppProps) => {
+  const { palettes } = props;
 
-    return (
-      <div
-        className="d-flex flex-column justify-content-between"
-        style={{
-          height: "100vh",
-          backgroundColor: `rgb(${palettes.darkMuted})`,
-          transition: "background-color 1s",
-          overflow: "hidden"
-        }}
-      >
-        <Navbar />
-        <Pokedex />
-        <Footer />
-        <Spinner />
-        <Backdrop />
-      </div>
-    );
-  }
-}
+  return (
+    <div
+      className="d-flex flex-column justify-content-between"
+      style={{
+        backgroundColor: `rgb(${palettes.darkMuted})`,
+        height: "100vh",
+        transition: "background-color 1s",
+        overflow: "hidden"
+      }}
+    >
+      <Navbar />
+      <Pokedex />
+      <Footer />
+      <Spinner />
+      <Backdrop />
+    </div>
+  );
+};
 
 const mapStateToProps = (state: any) => {
   const { pokemon, selectedForm } = state.pokemon;
