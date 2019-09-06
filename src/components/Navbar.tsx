@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 import { Navbar, Container, Input, Form, FormGroup } from "reactstrap";
-import { Field, reduxForm, InjectedFormProps } from "redux-form";
+import {
+  Field,
+  reduxForm,
+  InjectedFormProps,
+  WrappedFieldProps,
+  Validator
+} from "redux-form";
 import { connect } from "react-redux";
 import { css } from "emotion";
 
@@ -17,15 +23,18 @@ interface INavbarProps {
 class ComponentsNavbar extends Component<
   INavbarProps & InjectedFormProps<{}, INavbarProps>
 > {
-  onSearchPokemon = ({ search }: any) => {
-    if (
-      pokemonNames.map(p => p.toLowerCase()).includes(search.toLowerCase()) &&
-      this.props.name.toLowerCase() !== search
-    )
-      this.props.changePokemon(search);
+  onSearchPokemon = (submitProps: any) => {
+    const { search } = submitProps;
+
+    if (this.props.name.toLowerCase() === search) return;
+    if (!pokemonNames.map(p => p.toLowerCase()).includes(search.toLowerCase()))
+      return;
+
+    this.props.changePokemon(search);
   };
 
-  renderField = ({ input, meta }: any) => {
+  renderField = (fieldProps: WrappedFieldProps) => {
+    const { input, meta } = fieldProps;
     const { palettes } = this.props;
 
     const textColor = `rgb(${palettes.lightMuted})`;
@@ -80,7 +89,9 @@ class ComponentsNavbar extends Component<
   }
 }
 
-const validate = ({ search }: any) => {
+const validate: Validator = value => {
+  const { search } = value;
+
   if (
     !pokemonNames
       .map(pokemonName => pokemonName.toLowerCase())
@@ -107,6 +118,6 @@ export default connect(
 )(
   reduxForm<{}, INavbarProps>({
     form: "searchPokemon",
-    validate: validate as any
+    validate
   })(ComponentsNavbar)
 );
