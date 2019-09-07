@@ -26,7 +26,6 @@ Or if you want to try on your machine:
 ## Todo
 
 - [ ] Fix problem for certain Pokémon (ex: Eevee)
-- [ ] Make responsive
 - [ ] Use Typescript properly
 - [ ] Fix slow loaded image
 - [ ] Add fuzzy search Pokémon

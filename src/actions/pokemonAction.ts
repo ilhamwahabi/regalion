@@ -6,11 +6,6 @@ export const changePokemon = (pokemonIndex: string) => async (
   dispatch: Function,
   getState: Function
 ) => {
-  // console.log(getState().pokemon);
-  console.log(getState().pokemon.pokemons);
-  console.log(pokemonIndex);
-  console.log(Array.isArray(getState().pokemon.pokemons[pokemonIndex]));
-
   if (getState().pokemon.pokemons[pokemonIndex]) {
     return dispatch({
       type: "CHANGE_POKEMON",

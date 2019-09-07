@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { css } from "emotion";
 
 import Footer from "./Footer";
 import Searchbar from "./Searchbar";
@@ -17,12 +18,9 @@ const App = (props: IAppProps) => {
 
   return (
     <div
-      className="d-flex flex-column justify-content-between"
+      className={`${appStyle} d-flex flex-column justify-content-between`}
       style={{
-        backgroundColor: `rgb(${palettes.darkMuted})`,
-        height: "100vh",
-        transition: "background-color 1s",
-        overflow: "hidden"
+        backgroundColor: `rgb(${palettes.darkMuted})`
       }}
     >
       <Searchbar />
@@ -32,6 +30,17 @@ const App = (props: IAppProps) => {
     </div>
   );
 };
+
+const appStyle = css`
+  height: 100vh;
+  transition: background-color 1s;
+  overflow: hidden;
+
+  @media (max-width: 761px) {
+    height: initial;
+    overflow: visible;
+  }
+`;
 
 const mapStateToProps = (state: any) => {
   const { pokemons, currentPokemon, currentForm } = state.pokemon;
