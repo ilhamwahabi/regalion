@@ -124,7 +124,7 @@ const Sprite = (props: ISpriteProps) => {
       nextNumber && (
         <div
           className="d-flex align-items-center d-md-none position-absolute"
-          style={{ top: 0, bottom: 0, right: 20 }}
+          style={{ top: "50%", transform: "translateY(-50%)", right: 20 }}
           onClick={() => changePokemon(nextNumber)}
         >
           <Arrow height="36" width="36" />
@@ -135,7 +135,7 @@ const Sprite = (props: ISpriteProps) => {
       previousNumber && (
         <div
           className="d-flex align-items-center d-md-none position-absolute"
-          style={{ top: 0, bottom: 0, left: 20 }}
+          style={{ top: "50%", transform: "translateY(-50%)", left: 20 }}
           onClick={() => changePokemon(previousNumber)}
         >
           <Arrow
