@@ -97,6 +97,7 @@ const Sprite = (props: ISpriteProps) => {
         (form, index) =>
           index !== currentForm && (
             <div
+              key={index}
               style={{
                 cursor: "pointer",
                 marginRight: 15,
@@ -106,7 +107,6 @@ const Sprite = (props: ISpriteProps) => {
               }}
             >
               <img
-                key={index}
                 src={form.sprite}
                 alt={form.name}
                 title={form.name}
