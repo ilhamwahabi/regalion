@@ -10,7 +10,8 @@ import reducers from "./reducers";
 const persistConfig = {
   key: "regalion",
   storage,
-  stateReconciler: autoMergeLevel2
+  stateReconciler: autoMergeLevel2,
+  blacklist: ["loading", "form"]
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers as Reducer);
