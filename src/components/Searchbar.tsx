@@ -26,11 +26,16 @@ class Searchbar extends Component<
   onSearchPokemon = (submitProps: any) => {
     const { search } = submitProps;
 
+    // If it's same with current pokemon don't do search
     if (this.props.name.toLowerCase() === search) return;
-    if (!pokemonNames.map(p => p.toLowerCase()).includes(search.toLowerCase()))
-      return;
 
-    this.props.changePokemon(search);
+    // If name is not valid don't do search
+    const findIndex = pokemonNames.findIndex(
+      availableName => availableName.toLowerCase() === search.toLowerCase()
+    );
+    if (findIndex === -1) return;
+
+    this.props.changePokemon(findIndex + 1);
   };
 
   renderField = (fieldProps: WrappedFieldProps) => {
@@ -93,10 +98,10 @@ const validate: Validator = value => {
   const { search } = value;
 
   if (
-    !pokemonNames
-      .map(pokemonName => pokemonName.toLowerCase())
-      .includes(search && search.toLowerCase()) &&
-    search
+    search &&
+    pokemonNames.findIndex(
+      availableName => availableName.toLowerCase() === search.toLowerCase()
+    ) === -1
   )
     return { search: "Invalid Pokémon Name" };
 };
