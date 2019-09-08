@@ -94,23 +94,32 @@ const Sprite = (props: ISpriteProps) => {
       `} position-absolute d-flex`}
     >
       {pokemon.map(
-        (pokemon, index) =>
+        (form, index) =>
           index !== currentForm && (
-            <img
-              key={index}
-              src={pokemon.sprite}
-              alt={pokemon.name}
-              title={pokemon.name}
+            <div
               style={{
-                margin: "0 10px",
                 cursor: "pointer",
-                padding: 10,
-                boxSizing: "content-box",
-                backgroundColor: `rgba(${pokemon.palettes.lightMuted}, 0.25)`,
-                borderRadius: "50%"
+                marginRight: 15,
+                marginLeft: `${
+                  (index === 1 && currentForm === 0) || index === 0 ? 0 : 15
+                }px`
               }}
-              onClick={() => changeCurrentForm(index)}
-            />
+            >
+              <img
+                key={index}
+                src={form.sprite}
+                alt={form.name}
+                title={form.name}
+                style={{
+                  margin: "0 10px",
+                  padding: 10,
+                  boxSizing: "content-box",
+                  backgroundColor: `rgba(${form.palettes.lightMuted}, 0.25)`,
+                  borderRadius: "50%"
+                }}
+                onClick={() => changeCurrentForm(index)}
+              />
+            </div>
           )
       )}
     </div>
