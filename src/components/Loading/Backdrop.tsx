@@ -19,7 +19,7 @@ const backdropStyle = css`
   opacity: 0.5;
   position: fixed;
   width: 100vw;
-  height: 100%;
+  height: 100vh;
   z-index: 20;
 `;
 
