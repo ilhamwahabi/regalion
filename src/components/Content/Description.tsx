@@ -159,7 +159,7 @@ const Description = (props: IDescriptionProps) => {
         <Row className="mt-2 mt-md-3">
           <h4 className="m-auto">Evolution Line</h4>
         </Row>
-        <Row className="text-center mt-3">
+        <Row className="text-center mt-3 mb-4 mb-sm-0">
           {family.evolutionLine.length === 1 ? (
             <div className="h4 text-white mt-1" style={{ margin: "0 auto" }}>
               This Pokémon has no evolution line
