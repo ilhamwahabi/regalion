@@ -1,12 +1,6 @@
 import React, { Component } from "react";
 import { Navbar, Container, Input, Form, FormGroup } from "reactstrap";
-import {
-  Field,
-  reduxForm,
-  InjectedFormProps,
-  WrappedFieldProps,
-  Validator
-} from "redux-form";
+import { Field, reduxForm, InjectedFormProps, Validator } from "redux-form";
 import { connect } from "react-redux";
 import { css } from "emotion";
 
@@ -38,7 +32,7 @@ class Searchbar extends Component<
     this.props.changePokemon(findIndex + 1);
   };
 
-  renderField = (fieldProps: WrappedFieldProps) => {
+  renderField = (fieldProps: any) => {
     const { input, meta } = fieldProps;
     const { palettes } = this.props;
 
@@ -46,6 +40,8 @@ class Searchbar extends Component<
     const borderColor = meta.valid
       ? `rgb(${palettes.lightMuted})`
       : `rgb(${palettes.darkVibrant})`;
+
+    console.log({ fieldProps });
 
     return (
       <Input

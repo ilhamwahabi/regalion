@@ -7,6 +7,8 @@ export const changePokemon = (pokemonIndex: string) => async (
   getState: Function
 ) => {
   if (getState().pokemon.pokemons[pokemonIndex]) {
+    dispatch(reset("searchPokemon"));
+
     return dispatch({
       type: "CHANGE_POKEMON",
       payload: getState().pokemon.pokemons[pokemonIndex]

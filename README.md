@@ -27,6 +27,7 @@ Or if you want to try on your machine:
 
 - [ ] Fix problem for certain Pokémon that have more than one evolution line (ex: Eevee)
 - [ ] Fix problem for certain Pokémon that have weird form name (ex: Meloetta)
+- [ ] Dismiss keyboard when submit in mobile
 - [ ] Refactor some components.
 - [ ] Use Typescript properly especially for Redux part
 - [ ] Fix slow loaded image
