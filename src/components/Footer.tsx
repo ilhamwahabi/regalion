@@ -5,7 +5,7 @@ const Footer = () => {
   const renderCopyright = () => (
     <Nav className="w-100 d-flex justify-content-center justify-content-sm-between">
       <NavItem>
-        <NavLink>
+        <NavLink className="text-center">
           <i className="far fa-copyright" /> Nintendo, Game Freak, and The
           Pokémon Company
         </NavLink>
@@ -34,7 +34,11 @@ const Footer = () => {
     <footer className="section-navbars">
       <div id="footer">
         <div className="navigation">
-          <Navbar className="navbar-transparent" expand="sm">
+          <Navbar
+            style={{ zIndex: 10 }}
+            className="navbar-transparent"
+            expand="sm"
+          >
             <Container>
               {renderCopyright()}
               {renderSocialMedia()}

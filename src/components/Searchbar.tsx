@@ -74,7 +74,7 @@ class Searchbar extends Component<
 
   render() {
     return (
-      <Navbar className="navbar-transparent" expand="lg">
+      <Navbar style={{ zIndex: 10 }} className="navbar-transparent" expand="lg">
         <Container>
           <Form
             className="w-100"
