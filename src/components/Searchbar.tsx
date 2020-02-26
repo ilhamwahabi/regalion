@@ -41,8 +41,6 @@ class Searchbar extends Component<
       ? `rgb(${palettes.lightMuted})`
       : `rgb(${palettes.darkVibrant})`;
 
-    console.log({ fieldProps });
-
     return (
       <Input
         type="text"
@@ -111,12 +109,9 @@ const mapStateToProps = (state: any) => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  {
-    changePokemon
-  }
-)(
+export default connect(mapStateToProps, {
+  changePokemon
+})(
   reduxForm<{}, INavbarProps>({
     form: "searchPokemon",
     validate

@@ -10,8 +10,6 @@ Redux for state management. With help by redux-thunk, redux-persist and redux-fo
 
 Deployed to Surge.
 
-`Suffix 'leon' is come from Empoleon name because that was my starter Pokémon when I play Pokémon Platinum. And that was still one of my favorite game` :heart_eyes:
-
 ## Usage
 
 Try directly here: https://regalion.surge.sh
