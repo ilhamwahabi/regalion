@@ -10,7 +10,6 @@ const Backdrop = (props: IBackdropProps) => {
   const { loading } = props;
 
   if (!loading) return null;
-
   return <div className={backdropStyle} />;
 };
 
@@ -23,8 +22,6 @@ const backdropStyle = css`
   z-index: 20;
 `;
 
-const mapStateToProps = ({ loading }: { loading: boolean }) => {
-  return { loading };
-};
+const mapStateToProps = ({ loading }: { loading: boolean }) => ({ loading });
 
 export default connect(mapStateToProps)(Backdrop);

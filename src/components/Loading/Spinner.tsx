@@ -10,7 +10,6 @@ const Spinner = (props: ISpinnerProps) => {
   const { loading } = props;
 
   if (!loading) return null;
-
   return (
     <div className={spinnerStyle}>
       <div />
@@ -82,8 +81,6 @@ const spinnerStyle = css`
   }
 `;
 
-const mapStateToProps = ({ loading }: { loading: boolean }) => {
-  return { loading };
-};
+const mapStateToProps = ({ loading }: { loading: boolean }) => ({ loading });
 
 export default connect(mapStateToProps)(Spinner);
