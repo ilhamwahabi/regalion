@@ -1,15 +1,7 @@
 import React from "react";
 import { css } from "emotion";
-import { connect } from "react-redux";
 
-interface IBackdropProps {
-  loading: boolean;
-}
-
-const Backdrop = (props: IBackdropProps) => {
-  const { loading } = props;
-
-  if (!loading) return null;
+const Backdrop = () => {
   return <div className={backdropStyle} />;
 };
 
@@ -22,6 +14,4 @@ const backdropStyle = css`
   z-index: 20;
 `;
 
-const mapStateToProps = ({ loading }: { loading: boolean }) => ({ loading });
-
-export default connect(mapStateToProps)(Backdrop);
+export default Backdrop;

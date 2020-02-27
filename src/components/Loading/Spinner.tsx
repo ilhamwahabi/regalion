@@ -1,15 +1,7 @@
 import React from "react";
 import { css } from "emotion";
-import { connect } from "react-redux";
 
-interface ISpinnerProps {
-  loading: boolean;
-}
-
-const Spinner = (props: ISpinnerProps) => {
-  const { loading } = props;
-
-  if (!loading) return null;
+const Spinner = () => {
   return (
     <div className={spinnerStyle}>
       <div />
@@ -81,6 +73,4 @@ const spinnerStyle = css`
   }
 `;
 
-const mapStateToProps = ({ loading }: { loading: boolean }) => ({ loading });
-
-export default connect(mapStateToProps)(Spinner);
+export default Spinner;
