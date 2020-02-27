@@ -1,4 +1,9 @@
-const loadingReducer = (state = false, { type }: { type: string }) => {
+export type TLoadingState = boolean;
+
+const loadingReducer = (
+  state = false,
+  { type }: { type: string }
+): TLoadingState => {
   switch (type) {
     case "START_LOADING":
       return true;

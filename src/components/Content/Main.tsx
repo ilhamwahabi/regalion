@@ -6,6 +6,7 @@ import { css } from "emotion";
 import { ReactComponent as Arrow } from "../../assets/svg/arrow.svg";
 import { changeCurrentForm, changePokemon } from "../../actions";
 import { IPokemon } from "../../types";
+import { IState } from "../../reducers";
 
 interface ISpriteProps {
   pokemon: IPokemon[];
@@ -185,13 +186,11 @@ const pokemonFormStyle = css`
   }
 `;
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: IState) => {
   const { pokemons, currentPokemon, currentForm } = state.pokemon;
+  const pokemon = pokemons[currentPokemon];
 
-  return {
-    pokemon: pokemons[currentPokemon],
-    currentForm
-  };
+  return { pokemon, currentForm };
 };
 
 export default connect(mapStateToProps, { changeCurrentForm, changePokemon })(

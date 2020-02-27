@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { css } from "emotion";
 
 import { changePokemon } from "../../actions";
+import { IState } from "../../reducers";
 
 interface IDescriptionProps {
   name: string;
@@ -164,17 +165,13 @@ const abilityValueStyle = css`
   }
 `;
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: IState) => {
   const { pokemons, currentPokemon, currentForm } = state.pokemon;
+  const { name, types, height, weight, abilities, family } = pokemons[
+    currentPokemon
+  ][currentForm];
 
-  return {
-    name: pokemons[currentPokemon][currentForm].name,
-    types: pokemons[currentPokemon][currentForm].types,
-    height: pokemons[currentPokemon][currentForm].height,
-    weight: pokemons[currentPokemon][currentForm].weight,
-    abilities: pokemons[currentPokemon][currentForm].abilities,
-    family: pokemons[currentPokemon][currentForm].family
-  };
+  return { name, types, height, weight, abilities, family };
 };
 
 export default connect(mapStateToProps, { changePokemon })(Description);

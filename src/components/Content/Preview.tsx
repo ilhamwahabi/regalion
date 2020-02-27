@@ -3,17 +3,21 @@ import { Col } from "reactstrap";
 import { connect } from "react-redux";
 
 import { changePokemon } from "../../actions";
+import { IState } from "../../reducers";
+
+interface IPreviewProps {
+  type: "previous" | "next";
+}
 
 interface IDirectionProps {
-  sprite: string;
-  name: string;
-  number: string;
+  sprite?: string;
+  name?: string;
+  number?: string;
   changePokemon: Function;
 }
 
 const Preview = (props: IDirectionProps) => {
   const { sprite, name, number, changePokemon } = props;
-
   const [opacity, setOpacity] = useState(0.5);
 
   return (
@@ -38,17 +42,11 @@ const Preview = (props: IDirectionProps) => {
   );
 };
 
-const mapStateToProps = (state: any, { type }: any) => {
+const mapStateToProps = (state: IState, { type }: IPreviewProps) => {
   const { pokemons, currentPokemon, currentForm } = state.pokemon;
+  const { sprite, name, number } = pokemons[currentPokemon][currentForm][type];
 
-  return {
-    sprite: pokemons[currentPokemon][currentForm][type].sprite,
-    name: pokemons[currentPokemon][currentForm][type].name,
-    number: pokemons[currentPokemon][currentForm][type].number
-  };
+  return { sprite, name, number };
 };
 
-export default connect(
-  mapStateToProps,
-  { changePokemon }
-)(Preview);
+export default connect(mapStateToProps, { changePokemon })(Preview);

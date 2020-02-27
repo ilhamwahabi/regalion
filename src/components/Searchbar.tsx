@@ -7,6 +7,7 @@ import { css } from "emotion";
 import { changePokemon } from "../actions";
 import { pokemonNames } from "../assets/ts/name";
 import { IPalettes } from "../types";
+import { IState } from "../reducers";
 
 interface INavbarProps {
   name: string;
@@ -100,13 +101,11 @@ const validate: Validator = value => {
     return { search: "Invalid Pokémon Name" };
 };
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: IState) => {
   const { pokemons, currentPokemon, currentForm } = state.pokemon;
+  const { name, palettes } = pokemons[currentPokemon][currentForm];
 
-  return {
-    name: pokemons[currentPokemon][currentForm].name,
-    palettes: pokemons[currentPokemon][currentForm].palettes
-  };
+  return { name, palettes };
 };
 
 export default connect(mapStateToProps, {

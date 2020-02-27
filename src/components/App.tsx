@@ -8,6 +8,7 @@ import Content from "./Content";
 import Loading from "./Loading";
 
 import { IPalettes } from "../types";
+import { IState } from "../reducers";
 
 interface IAppProps {
   palettes: IPalettes;
@@ -43,9 +44,11 @@ const appStyle = css`
   }
 `;
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: IState) => {
   const { pokemons, currentPokemon, currentForm } = state.pokemon;
-  return { palettes: pokemons[currentPokemon][currentForm].palettes };
+  const { palettes } = pokemons[currentPokemon][currentForm];
+
+  return { palettes };
 };
 
 export default connect(mapStateToProps)(App);
