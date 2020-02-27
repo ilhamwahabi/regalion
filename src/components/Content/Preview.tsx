@@ -13,7 +13,7 @@ interface IDirectionProps {
   sprite?: string;
   name?: string;
   number?: string;
-  changePokemon: Function;
+  changePokemon: (index: string) => void;
 }
 
 const Preview = (props: IDirectionProps) => {
@@ -31,7 +31,7 @@ const Preview = (props: IDirectionProps) => {
           style={{ opacity, transition: ".25s opacity", cursor: "pointer" }}
           onMouseOver={e => setOpacity(1)}
           onMouseOut={e => setOpacity(0.5)}
-          onClick={() => changePokemon(number)}
+          onClick={() => changePokemon(number || "0")}
         >
           <img width="75" src={sprite} alt={name} />
           <h5 className="text-white mt-2 mb-1">{name}</h5>

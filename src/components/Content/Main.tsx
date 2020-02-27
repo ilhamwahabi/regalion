@@ -11,8 +11,8 @@ import { IState } from "../../reducers";
 interface ISpriteProps {
   pokemon: IPokemon[];
   currentForm: number;
-  changeCurrentForm(index: number): void;
-  changePokemon(index: string): void;
+  changeCurrentForm: (index: number) => void;
+  changePokemon: (index: string) => void;
 }
 
 const Sprite = (props: ISpriteProps) => {

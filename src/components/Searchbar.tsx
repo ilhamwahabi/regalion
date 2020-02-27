@@ -12,7 +12,7 @@ import { IState } from "../reducers";
 interface INavbarProps {
   name: string;
   palettes: IPalettes;
-  changePokemon(pokemonNameOrIndex: number | string): void;
+  changePokemon: (index: string) => void;
 }
 
 class Searchbar extends Component<
@@ -20,6 +20,7 @@ class Searchbar extends Component<
 > {
   onSearchPokemon = (submitProps: any) => {
     const { search } = submitProps;
+    const { changePokemon } = this.props;
 
     // If it's same with current pokemon don't do search
     if (this.props.name.toLowerCase() === search) return;
@@ -30,7 +31,7 @@ class Searchbar extends Component<
     );
     if (findIndex === -1) return;
 
-    this.props.changePokemon(findIndex + 1);
+    changePokemon((findIndex + 1).toString());
   };
 
   renderField = (fieldProps: any) => {

@@ -17,7 +17,7 @@ interface IDescriptionProps {
     evolutionStage: number;
     evolutionLine: { name: string; number: string; sprite: string }[];
   };
-  changePokemon: Function;
+  changePokemon: (index: string) => void;
 }
 
 const Description = (props: IDescriptionProps) => {
