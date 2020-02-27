@@ -19,15 +19,7 @@ const Sprite = (props: ISpriteProps) => {
   const { name, number, sprite } = pokemon[currentForm];
 
   const renderPokemonSprite = () => (
-    <Row
-      className={css`
-        flex: 1;
-
-        @media (max-width: 768px) {
-          padding: 60px 0;
-        }
-      `}
-    >
+    <Row className={pokemonSpriteStyle}>
       <Col className="d-flex justify-content-center align-items-center">
         <div className="d-flex justify-content-center align-items-center">
           <img style={{ maxWidth: "80%", zIndex: 1 }} src={sprite} alt={name} />
@@ -36,63 +28,14 @@ const Sprite = (props: ISpriteProps) => {
     </Row>
   );
 
-  const renderPokemonName = () => (
-    <p
-      className={`${css`
-        padding-bottom: 5px;
-        top: 0;
-        left: 10px;
-        font-size: 2.75rem;
-        font-weight: 600;
-        line-height: 52px;
-
-        @media (max-width: 768px) {
-          font-size: 2.25rem;
-          left: 0px;
-          right: 0px;
-          text-align: center;
-        }
-      `} position-absolute text-white`}
-    >
-      {name}
-    </p>
-  );
+  const renderPokemonName = () => <p className={pokemonNameStyle}>{name}</p>;
 
   const renderPokemonNumber = () => (
-    <p
-      className={`${css`
-        margin-left: 15px;
-        flex: 1;
-        text-align: right;
-        bottom: 0;
-        right: 10px;
-        font-size: 2.25rem;
-        font-weight: 600;
-        line-height: 42px;
-
-        @media (max-width: 768px) {
-          font-size: 1.75rem;
-          right: 30px;
-        }
-      `} position-absolute mb-0`}
-    >
-      #{number}
-    </p>
+    <p className={pokemonNumberStyle}>#{number}</p>
   );
 
   const renderPokemonAvailableForm = () => (
-    <div
-      className={`${css`
-        bottom: 0px;
-        left: 10px;
-        max-width: 10%;
-
-        @media (max-width: 768px) {
-          left: 20px;
-          bottom: 10px;
-        }
-      `} position-absolute d-flex`}
-    >
+    <div className={pokemonFormStyle}>
       {pokemon.map(
         (form, index) =>
           index !== currentForm && (
@@ -164,11 +107,7 @@ const Sprite = (props: ISpriteProps) => {
   };
 
   return (
-    <Col
-      md="12"
-      lg="4"
-      className="d-flex flex-column justify-content-between mb-2 mb-md-0"
-    >
+    <Col md="12" lg="4" className={containerStyle}>
       {renderPokemonSprite()}
       {renderPokemonName()}
       {renderPokemonNumber()}
@@ -177,6 +116,74 @@ const Sprite = (props: ISpriteProps) => {
     </Col>
   );
 };
+
+const containerStyle = css`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+
+  @media (min-width: 768px) {
+    margin-bottom: 0;
+  }
+`;
+
+const pokemonSpriteStyle = css`
+  flex: 1;
+
+  @media (max-width: 768px) {
+    padding: 60px 0;
+  }
+`;
+
+const pokemonNameStyle = css`
+  padding-bottom: 5px;
+  top: 0;
+  left: 10px;
+  font-size: 2.75rem;
+  font-weight: 600;
+  line-height: 52px;
+  position: absolute;
+  color: white;
+
+  @media (max-width: 768px) {
+    font-size: 2.25rem;
+    left: 0px;
+    right: 0px;
+    text-align: center;
+  }
+`;
+
+const pokemonNumberStyle = css`
+  margin-left: 15px;
+  flex: 1;
+  text-align: right;
+  bottom: 0;
+  right: 10px;
+  font-size: 2.25rem;
+  font-weight: 600;
+  line-height: 42px;
+  position: absolute;
+  margin-bottom: 0;
+
+  @media (max-width: 768px) {
+    font-size: 1.75rem;
+    right: 30px;
+  }
+`;
+
+const pokemonFormStyle = css`
+  bottom: 0px;
+  left: 10px;
+  max-width: 10%;
+  position: absolute;
+  display: flex;
+
+  @media (max-width: 768px) {
+    left: 20px;
+    bottom: 10px;
+  }
+`;
 
 const mapStateToProps = (state: any) => {
   const { pokemons, currentPokemon, currentForm } = state.pokemon;
@@ -187,7 +194,6 @@ const mapStateToProps = (state: any) => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  { changeCurrentForm, changePokemon }
-)(Sprite);
+export default connect(mapStateToProps, { changeCurrentForm, changePokemon })(
+  Sprite
+);
