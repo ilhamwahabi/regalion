@@ -18,10 +18,8 @@ const App = (props: IAppProps) => {
 
   return (
     <div
-      className={`${appStyle} d-flex flex-column justify-content-between`}
-      style={{
-        backgroundColor: `rgb(${palettes.darkMuted})`
-      }}
+      className={appStyle}
+      style={{ backgroundColor: `rgb(${palettes.darkMuted})` }}
     >
       <Searchbar />
       <Content />
@@ -35,6 +33,9 @@ const appStyle = css`
   height: 100vh;
   transition: background-color 1s;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   @media (max-width: 761px) {
     height: initial;
@@ -44,7 +45,6 @@ const appStyle = css`
 
 const mapStateToProps = (state: any) => {
   const { pokemons, currentPokemon, currentForm } = state.pokemon;
-
   return { palettes: pokemons[currentPokemon][currentForm].palettes };
 };
 
