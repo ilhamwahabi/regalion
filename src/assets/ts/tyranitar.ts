@@ -1,4 +1,6 @@
-export const tyranitar = [
+import { IPokemon } from "../../types";
+
+export const tyranitar: IPokemon[] = [
   {
     number: "248",
     name: "Tyranitar",

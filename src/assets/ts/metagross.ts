@@ -1,4 +1,6 @@
-export const metagross = [
+import { IPokemon } from "../../types";
+
+export const metagross: IPokemon[] = [
   {
     number: "376",
     name: "Metagross",

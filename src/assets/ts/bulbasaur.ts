@@ -1,4 +1,6 @@
-export const bulbasaur = [
+import { IPokemon } from "../../types";
+
+export const bulbasaur: IPokemon[] = [
   {
     number: "1",
     name: "Bulbasaur",
