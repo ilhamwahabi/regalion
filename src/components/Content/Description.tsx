@@ -47,35 +47,11 @@ const Description = (props: IDescriptionProps) => {
       <Row className="text-center my-2 my-md-3">
         <Col>
           <h4 className="mb-0 mb-md-3">Height</h4>
-          <div
-            className={`${css`
-              font-size: 2.25rem;
-              font-weight: 600;
-              line-height: 1.2;
-
-              @media (max-width: 768px) {
-                font-size: 1.75rem;
-              }
-            `} text-white`}
-          >
-            {height}
-          </div>
+          <div className={heightWeightValueStyle}>{height}</div>
         </Col>
         <Col>
           <h4 className="mb-0 mb-md-3">Weight</h4>
-          <div
-            className={`${css`
-              font-size: 2.25rem;
-              font-weight: 600;
-              line-height: 1.2;
-
-              @media (max-width: 768px) {
-                font-size: 1.75rem;
-              }
-            `} text-white`}
-          >
-            {weight}
-          </div>
+          <div className={heightWeightValueStyle}>{weight}</div>
         </Col>
       </Row>
     );
@@ -89,28 +65,9 @@ const Description = (props: IDescriptionProps) => {
         </Row>
         <Row className="text-center mt-2 mb-3">
           <Col>
-            <h5
-              className={css`
-                @media (max-width: 761px) {
-                  margin-bottom: 0;
-                }
-              `}
-            >
-              Normal
-            </h5>
+            <h5 className={abilityLabelStyle}>Normal</h5>
             {abilities.normal.map((ability, index) => (
-              <div
-                className={`${css`
-                  font-size: 1.5rem;
-                  font-weight: 600;
-                  line-height: 1.2;
-
-                  @media (max-width: 768px) {
-                    font-size: 1.25rem;
-                  }
-                `} text-white mb-1`}
-                key={index}
-              >
+              <div key={index} className={abilityValueStyle}>
                 {ability}
               </div>
             ))}
@@ -119,28 +76,9 @@ const Description = (props: IDescriptionProps) => {
             )}
           </Col>
           <Col>
-            <h5
-              className={css`
-                @media (max-width: 761px) {
-                  margin-bottom: 0;
-                }
-              `}
-            >
-              Hidden
-            </h5>
+            <h5 className={abilityLabelStyle}>Hidden</h5>
             {abilities.hidden.map((ability, index) => (
-              <div
-                key={index}
-                className={`${css`
-                  font-size: 1.5rem;
-                  font-weight: 600;
-                  line-height: 1.2;
-
-                  @media (max-width: 768px) {
-                    font-size: 1.25rem;
-                  }
-                `} text-white mb-1`}
-              >
+              <div key={index} className={abilityValueStyle}>
                 {ability}
               </div>
             ))}
@@ -182,7 +120,7 @@ const Description = (props: IDescriptionProps) => {
   };
 
   return (
-    <Col md="12" lg="4" className="d-flex flex-column justify-content-center">
+    <Col md="12" lg="4" className={containerStyle}>
       {renderTypes()}
       {renderHeightWeight()}
       {renderAbilities()}
@@ -190,6 +128,41 @@ const Description = (props: IDescriptionProps) => {
     </Col>
   );
 };
+
+const containerStyle = css`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+const heightWeightValueStyle = css`
+  font-size: 2.25rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: white;
+
+  @media (max-width: 768px) {
+    font-size: 1.75rem;
+  }
+`;
+
+const abilityLabelStyle = css`
+  @media (max-width: 761px) {
+    margin-bottom: 0;
+  }
+`;
+
+const abilityValueStyle = css`
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: white;
+  margin-bottom: 0.25rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.25rem;
+  }
+`;
 
 const mapStateToProps = (state: any) => {
   const { pokemons, currentPokemon, currentForm } = state.pokemon;
@@ -204,7 +177,4 @@ const mapStateToProps = (state: any) => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  { changePokemon }
-)(Description);
+export default connect(mapStateToProps, { changePokemon })(Description);
