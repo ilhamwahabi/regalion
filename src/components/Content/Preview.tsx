@@ -24,7 +24,7 @@ const Preview = (props: IDirectionProps) => {
     <Col
       md="12"
       lg="2"
-      className="d-none d-md-flex flex-column justify-content-center text-center"
+      className="d-none d-lg-flex flex-column justify-content-center text-center"
     >
       {name && (
         <div
