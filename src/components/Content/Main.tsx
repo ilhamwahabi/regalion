@@ -108,7 +108,7 @@ const Sprite = (props: ISpriteProps) => {
   };
 
   return (
-    <Col md="12" lg="4" className={containerStyle}>
+    <Col md="10" lg="4" className={containerStyle}>
       {renderPokemonSprite()}
       {renderPokemonName()}
       {renderPokemonNumber()}
@@ -123,8 +123,20 @@ const containerStyle = css`
   flex-direction: column;
   justify-content: space-between;
   margin-bottom: 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
 
-  @media (min-width: 768px) {
+  @media (min-width: 481px) and (max-width: 767px) {
+    max-width: 500px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+    min-height: 560px;
+  }
+
+  @media (min-width: 1025px) {
     margin-bottom: 0;
   }
 `;
@@ -147,7 +159,7 @@ const pokemonNameStyle = css`
   position: absolute;
   color: white;
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     font-size: 2.25rem;
     left: 0px;
     right: 0px;
@@ -167,9 +179,20 @@ const pokemonNumberStyle = css`
   position: absolute;
   margin-bottom: 0;
 
-  @media (max-width: 768px) {
-    font-size: 1.75rem;
+  @media (min-width: 768px) and (max-width: 1024px) {
+    font-size: 2.5rem;
+  }
+
+  @media (min-width: 481px) and (max-width: 767px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 767px) {
     right: 30px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.75rem;
   }
 `;
 
