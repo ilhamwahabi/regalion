@@ -8,7 +8,7 @@ const { twitter, github } = {
 
 const Footer = () => {
   const renderCopyright = () => (
-    <Nav className="w-100 d-flex justify-content-center justify-content-sm-between">
+    <Nav className="w-100 d-flex justify-content-center justify-content-lg-between">
       <NavItem>
         <NavLink className="text-center">
           <i className="far fa-copyright" /> Nintendo, Game Freak, and The
@@ -19,7 +19,7 @@ const Footer = () => {
   );
 
   const renderSocialMedia = () => (
-    <Nav className="ml-auto d-none d-sm-flex" navbar>
+    <Nav className="ml-auto d-none d-lg-flex" navbar>
       <NavItem>
         <NavLink href={twitter} target="_blank">
           <i className="fab fa-twitter" />
