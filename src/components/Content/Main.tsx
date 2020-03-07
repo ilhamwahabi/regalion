@@ -179,6 +179,7 @@ const pokemonFormStyle = css`
   max-width: 10%;
   position: absolute;
   display: flex;
+  z-index: 2;
 
   @media (max-width: 768px) {
     left: 20px;
