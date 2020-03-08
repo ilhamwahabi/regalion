@@ -192,12 +192,16 @@ const pokemonNumberStyle = css`
   }
 
   @media (max-width: 767px) {
-    right: 30px;
+    right: 10%;
     bottom: 5%;
   }
 
   @media (max-width: 480px) {
     font-size: 1.75rem;
+  }
+
+  @media (max-width: 320px) {
+    right: 7.5%;
   }
 `;
 

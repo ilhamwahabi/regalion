@@ -1,5 +1,6 @@
 import React from "react";
 import { Navbar, NavItem, NavLink, Nav, Container } from "reactstrap";
+import { css } from "emotion";
 
 const { twitter, github } = {
   twitter: "https://twitter.com/ilhamwahabigx",
@@ -39,11 +40,7 @@ const Footer = () => {
     <footer className="section-navbars">
       <div id="footer">
         <div className="navigation">
-          <Navbar
-            style={{ zIndex: 10 }}
-            className="navbar-transparent"
-            expand="sm"
-          >
+          <Navbar className={navigationStyle} expand="sm">
             <Container>
               {renderCopyright()}
               {renderSocialMedia()}
@@ -54,5 +51,18 @@ const Footer = () => {
     </footer>
   );
 };
+
+const navigationStyle = css`
+  z-index: 10;
+  background: transparent;
+
+  @media (max-width: 1024px) {
+    padding-top: 10%;
+  }
+
+  @media (max-width: 480px) {
+    padding-top: 5%;
+  }
+`;
 
 export default Footer;
