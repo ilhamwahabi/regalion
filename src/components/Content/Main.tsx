@@ -22,7 +22,10 @@ const Sprite = (props: ISpriteProps) => {
   const renderPokemonSprite = () => (
     <Row className={pokemonSpriteStyle}>
       <Col className="d-flex justify-content-center align-items-center">
-        <div className="d-flex justify-content-center align-items-center">
+        <div
+          className="d-flex justify-content-center align-items-center"
+          style={{ padding: "10%" }}
+        >
           <img style={{ maxWidth: "80%", zIndex: 1 }} src={sprite} alt={name} />
         </div>
       </Col>
@@ -131,7 +134,7 @@ const containerStyle = css`
   }
 
   @media (min-width: 768px) and (max-width: 1024px) {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     max-width: 600px;
     min-height: 560px;
   }
@@ -181,6 +184,7 @@ const pokemonNumberStyle = css`
 
   @media (min-width: 768px) and (max-width: 1024px) {
     font-size: 2.5rem;
+    bottom: 5%;
   }
 
   @media (min-width: 481px) and (max-width: 767px) {
@@ -189,6 +193,7 @@ const pokemonNumberStyle = css`
 
   @media (max-width: 767px) {
     right: 30px;
+    bottom: 5%;
   }
 
   @media (max-width: 480px) {
@@ -204,7 +209,11 @@ const pokemonFormStyle = css`
   display: flex;
   z-index: 2;
 
-  @media (max-width: 768px) {
+  @media (min-width: 768px) and (max-width: 1024px) {
+    bottom: 5%;
+  }
+
+  @media (max-width: 767px) {
     left: 20px;
     bottom: 10px;
   }
