@@ -77,13 +77,19 @@ const Sprite = (props: ISpriteProps) => {
                 src={form.sprite}
                 alt={form.name}
                 title={form.name}
-                style={{
-                  margin: "0 10px",
-                  padding: 10,
-                  boxSizing: "content-box",
-                  backgroundColor: `rgba(${form.palettes.lightMuted}, 0.25)`,
-                  borderRadius: "50%"
-                }}
+                className={css`
+                  margin: 0 10px;
+                  padding: 10px;
+                  box-sizing: content-box;
+                  background-color: rgba(${form.palettes.lightMuted}, 0.25);
+                  border-radius: 50%;
+                  border: 1.5px solid transparent;
+                  transition: border 0.5s;
+
+                  &:hover {
+                    border: 1.5px solid rgb(${form.palettes.lightMuted});
+                  }
+                `}
                 onClick={() => changeCurrentForm(index)}
               />
             </div>
