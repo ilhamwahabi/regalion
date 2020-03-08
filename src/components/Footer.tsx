@@ -1,6 +1,7 @@
 import React from "react";
 import { Navbar, NavItem, NavLink, Nav, Container } from "reactstrap";
 import { css } from "emotion";
+import { FaRegCopyright, FaTwitter, FaGithub } from "react-icons/fa";
 
 const { twitter, github } = {
   twitter: "https://twitter.com/ilhamwahabigx",
@@ -12,8 +13,10 @@ const Footer = () => {
     <Nav className="w-100 d-flex justify-content-center justify-content-lg-between">
       <NavItem>
         <NavLink className="text-center">
-          <i className="far fa-copyright" /> Nintendo, Game Freak, and The
-          Pokémon Company
+          <FaRegCopyright
+            style={{ marginBottom: 3, marginRight: 5, fontSize: 15 }}
+          />
+          Nintendo, Game Freak, and The Pokémon Company
         </NavLink>
       </NavItem>
     </Nav>
@@ -23,13 +26,13 @@ const Footer = () => {
     <Nav className="ml-auto d-none d-lg-flex" navbar>
       <NavItem>
         <NavLink href={twitter} target="_blank">
-          <i className="fab fa-twitter" />
+          <FaTwitter style={{ marginRight: 5, fontSize: 18 }} />
           @ilhamwahabigx
         </NavLink>
       </NavItem>
       <NavItem>
         <NavLink href={github} target="_blank">
-          <i className="fab fa-github" />
+          <FaGithub style={{ marginRight: 5, fontSize: 18 }} />
           iwgx
         </NavLink>
       </NavItem>
