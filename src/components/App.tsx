@@ -38,7 +38,7 @@ const appStyle = css`
   flex-direction: column;
   justify-content: space-between;
 
-  @media (max-width: 1025px) {
+  @media (max-width: 1024px) {
     height: initial;
     overflow: visible;
   }

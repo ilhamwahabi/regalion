@@ -8,6 +8,26 @@ import { changeCurrentForm, changePokemon } from "../../actions";
 import { IPokemon } from "../../types";
 import { IState } from "../../reducers";
 
+interface INavigationArrow {
+  containerStyle?: React.CSSProperties;
+  arrowStyle?: React.CSSProperties;
+  actionClick: () => void;
+}
+
+const NavigationArrow = (props: INavigationArrow) => {
+  const { containerStyle, arrowStyle, actionClick } = props;
+
+  return (
+    <div
+      className="d-flex align-items-center d-lg-none position-absolute"
+      style={{ top: "50%", transform: "translateY(-50%)", ...containerStyle }}
+      onClick={actionClick}
+    >
+      <Arrow height="36" width="36" style={{ ...arrowStyle }} />
+    </div>
+  );
+};
+
 interface ISpriteProps {
   pokemon: IPokemon[];
   currentForm: number;
@@ -73,33 +93,24 @@ const Sprite = (props: ISpriteProps) => {
   );
 
   const renderPokemonNextAndPreviousArrow = () => {
-    const previousNumber = pokemon[currentForm]["previous"].number;
-    const nextNumber = pokemon[currentForm]["next"].number;
-
-    const nextPokemonArrow = () =>
-      nextNumber && (
-        <div
-          className="d-flex align-items-center d-lg-none position-absolute"
-          style={{ top: "50%", transform: "translateY(-50%)", right: 20 }}
-          onClick={() => changePokemon(nextNumber)}
-        >
-          <Arrow height="36" width="36" />
-        </div>
-      );
+    const previousIndex = pokemon[currentForm]["previous"].number;
+    const nextIndex = pokemon[currentForm]["next"].number;
 
     const previousPokemonArrow = () =>
-      previousNumber && (
-        <div
-          className="d-flex align-items-center d-lg-none position-absolute"
-          style={{ top: "50%", transform: "translateY(-50%)", left: 20 }}
-          onClick={() => changePokemon(previousNumber)}
-        >
-          <Arrow
-            height="36"
-            width="36"
-            style={{ transform: "rotate(180deg)" }}
-          />
-        </div>
+      previousIndex && (
+        <NavigationArrow
+          containerStyle={{ left: 20 }}
+          arrowStyle={{ transform: "rotate(180deg)" }}
+          actionClick={() => changePokemon(previousIndex)}
+        />
+      );
+
+    const nextPokemonArrow = () =>
+      nextIndex && (
+        <NavigationArrow
+          containerStyle={{ right: 20 }}
+          actionClick={() => changePokemon(nextIndex)}
+        />
       );
 
     return (

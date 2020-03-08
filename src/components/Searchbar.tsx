@@ -20,10 +20,10 @@ class Searchbar extends Component<
 > {
   onSearchPokemon = (submitProps: any) => {
     const { search } = submitProps;
-    const { changePokemon } = this.props;
+    const { name, changePokemon } = this.props;
 
     // If it's same with current pokemon don't do search
-    if (this.props.name.toLowerCase() === search) return;
+    if (name.toLowerCase() === search.toLowerCase()) return;
 
     // If name is not valid don't do search
     const findIndex = pokemonNames.findIndex(
