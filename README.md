@@ -12,7 +12,7 @@ Deployed to Surge.
 
 ## Usage
 
-Try directly here: https://regalion.surge.sh
+Try directly here: https://regalion.iwgx.io
 
 Or if you want to try on your machine:
 
