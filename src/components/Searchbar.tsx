@@ -63,6 +63,7 @@ class Searchbar extends Component<
         autoComplete="off"
         invalid={meta.active && !!meta.error}
         list="pokemons"
+        aria-label="Search any Pokémon"
         {...input}
       />
     );
