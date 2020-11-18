@@ -8,7 +8,7 @@ Reactstrap (with Bootstrap) and emotion for styling.
 
 Redux for state management. With help by redux-thunk, redux-persist and redux-form.
 
-Deployed to Surge.
+Deployed to Vercel.
 
 ## Usage
 
