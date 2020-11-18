@@ -25,13 +25,13 @@ const Footer = () => {
   const renderSocialMedia = () => (
     <Nav className="ml-auto d-none d-lg-flex" navbar>
       <NavItem>
-        <NavLink href={twitter} target="_blank">
+        <NavLink href={twitter} target="_blank" rel="noopener">
           <FaTwitter style={{ marginRight: 5, fontSize: 18 }} />
           @ilhamwahabigx
         </NavLink>
       </NavItem>
       <NavItem>
-        <NavLink href={github} target="_blank">
+        <NavLink href={github} target="_blank" rel="noopener">
           <FaGithub style={{ marginRight: 5, fontSize: 18 }} />
           iwgx
         </NavLink>
