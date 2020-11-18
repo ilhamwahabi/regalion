@@ -61,49 +61,9 @@
 
 // Custom components
 
-@import "blk-design-system-react/custom/alerts.scss";
 @import "blk-design-system-react/custom/buttons.scss";
-@import "blk-design-system-react/custom/dropdown.scss";
-@import "blk-design-system-react/custom/footer.scss";
 @import "blk-design-system-react/custom/forms.scss";
 @import "blk-design-system-react/custom/images.scss";
-@import "blk-design-system-react/custom/modal.scss";
 @import "blk-design-system-react/custom/navbar.scss";
 @import "blk-design-system-react/custom/type.scss";
-@import "blk-design-system-react/custom/icons.scss";
-@import "blk-design-system-react/custom/tables";
-@import "blk-design-system-react/custom/checkboxes-radio";
-@import "blk-design-system-react/custom/fixed-plugin";
-@import "blk-design-system-react/custom/pagination.scss";
-@import "blk-design-system-react/custom/misc.scss";
-@import "blk-design-system-react/custom/rtl.scss";
 @import "blk-design-system-react/custom/input-group.scss";
-@import "blk-design-system-react/custom/progress.scss";
-@import "blk-design-system-react/custom/badge.scss";
-@import "blk-design-system-react/custom/pills.scss";
-@import "blk-design-system-react/custom/tabs.scss";
-@import "blk-design-system-react/custom/info-areas.scss";
-
-// Vendor / Plugins
-
-@import "blk-design-system-react/custom/vendor/plugin-perfect-scrollbar.scss";
-@import "blk-design-system-react/custom/vendor/plugin-animate-bootstrap-notify.scss";
-@import "blk-design-system-react/custom/vendor/plugin-bootstrap-switch.scss";
-@import "blk-design-system-react/custom/vendor/plugin-nouislider.scss";
-@import "blk-design-system-react/custom/vendor/plugin-datetimepicker.scss";
-
-// Cards
-
-@import "blk-design-system-react/custom/card";
-@import "blk-design-system-react/custom/cards/card-chart";
-@import "blk-design-system-react/custom/cards/card-map";
-@import "blk-design-system-react/custom/cards/card-user";
-@import "blk-design-system-react/custom/cards/card-task";
-@import "blk-design-system-react/custom/cards/card-plain";
-@import "blk-design-system-react/custom/cards/card-register";
-@import "blk-design-system-react/custom/cards/card-stats";
-@import "blk-design-system-react/custom/cards/card-chart";
-
-// React Differences
-
-@import "blk-design-system-react/react/react-differences";
