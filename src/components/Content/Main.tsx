@@ -85,6 +85,7 @@ const Sprite = (props: ISpriteProps) => {
                   border-radius: 50%;
                   border: 1.5px solid transparent;
                   transition: border 0.5s;
+                  max-width: 100%;
 
                   &:hover {
                     border: 1.5px solid rgb(${form.palettes.lightMuted});

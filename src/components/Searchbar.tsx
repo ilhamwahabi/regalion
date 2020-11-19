@@ -77,7 +77,7 @@ class Searchbar extends Component<
             className="w-100"
             onSubmit={this.props.handleSubmit(this.onSearchPokemon)}
           >
-            <FormGroup>
+            <FormGroup style={{ marginBottom: 10 }}>
               <Field
                 name="search"
                 component={this.renderField}
