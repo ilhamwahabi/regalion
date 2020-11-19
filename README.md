@@ -19,7 +19,6 @@ Or if you want to try on your machine:
 1. Clone this repo
 2. Install dependencies ( `yarn` )
 3. Run app ( `yarn start` )
-4. Deploy, make sure you have surge installed globally ( `yarn deploy` )
 
 ## License
 
