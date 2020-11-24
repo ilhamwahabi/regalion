@@ -25,5 +25,3 @@ Or if you want to try on your machine:
 All content is © Nintendo, Game Freak, and The Pokémon Company.
 
 Use API from https://pokedevs.gitbook.io to serve data. Response is being cached in server and make it persist in client.
-
-Use [Blk• Design System React](https://github.com/creativetimofficial/blk-design-system-react) for project template from Creative Tim.

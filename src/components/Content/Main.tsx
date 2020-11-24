@@ -3,7 +3,7 @@ import { Row, Col } from "reactstrap";
 import { connect } from "react-redux";
 import { css } from "emotion";
 
-import { ReactComponent as Arrow } from "../../assets/svg/arrow.svg";
+import { ReactComponent as Arrow } from "../../assets/arrow.svg";
 import { changeCurrentForm, changePokemon } from "../../actions";
 import { IPokemon } from "../../types";
 import { IState } from "../../reducers";
