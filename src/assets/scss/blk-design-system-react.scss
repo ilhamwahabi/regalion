@@ -1,29 +1,26 @@
-/*
- =========================================================
- * Blk• Design System - v1.0.0
- =========================================================
-
- * Product Page: https://www.creative-tim.com/product/blk-design-system
- * Copyright 2018 Creative Tim (http://www.creative-tim.com)
-
-
- =========================================================
-
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
- */
-
-// Core
-
 @import "blk-design-system-react/bootstrap/functions";
 
 @import "blk-design-system-react/custom/variables";
-@import "blk-design-system-react/bootstrap/variables";
+
+$paragraph-margin-bottom: 1rem !default;
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+) !default;
+
+$grid-columns: 12 !default;
+$grid-gutter-width: 30px !default;
+
+$line-height-base: 1.5 !default;
+
+$btn-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+  border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !default;
 
 @import "blk-design-system-react/custom/mixins";
 @import "blk-design-system-react/bootstrap/mixins";
-
-// Bootstrap components
 
 @import "blk-design-system-react/bootstrap/reboot";
 
