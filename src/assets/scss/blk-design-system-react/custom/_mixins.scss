@@ -1,5 +1,269 @@
-@import "mixins/buttons.scss";
-@import "mixins/icon.scss";
-@import "mixins/vendor-prefixes.scss";
-@import "mixins/opacity.scss";
-@import "mixins/inputs.scss";
+@mixin btn-styles($btn-color, $btn-states-color) {
+  @include diagonal-gradient($btn-color, $btn-states-color);
+  background-color: $btn-color;
+  transition: all 0.15s ease;
+  box-shadow: none;
+  &.animation-on-hover:hover {
+    background-position: bottom left;
+    transition: 0.3s ease-in-out;
+  }
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active,
+  &:active:focus,
+  &:active:hover,
+  &.active:focus,
+  &.active:hover {
+    background-color: $btn-states-color !important;
+    background-image: linear-gradient(
+      to bottom left,
+      $btn-color,
+      $btn-states-color,
+      $btn-color
+    ) !important;
+    background-image: -webkit-linear-gradient(
+      to bottom left,
+      $btn-color,
+      $btn-states-color,
+      $btn-color
+    ) !important;
+    background-image: -o-linear-gradient(
+      to bottom left,
+      $btn-color,
+      $btn-states-color,
+      $btn-color
+    ) !important;
+    background-image: -moz-linear-gradient(
+      to bottom left,
+      $btn-color,
+      $btn-states-color,
+      $btn-color
+    ) !important;
+    color: $white;
+    box-shadow: none;
+  }
+
+  &:active {
+    box-shadow: none !important;
+    transform: translateY(1px) !important;
+    transition: all 0.15s ease;
+  }
+
+  &:not([data-action]):hover {
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+    transform: translateY(-1px);
+    -webkit-transform: translateY(-1px);
+  }
+
+  &.disabled,
+  &:disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active {
+      background-color: $btn-color;
+      border-color: $btn-color;
+    }
+  }
+
+  // btn-neutral style
+  @if $btn-color == $white {
+    color: $primary;
+
+    &.btn-danger {
+      color: $danger;
+
+      &:hover,
+      &:focus,
+      &:active,
+      &:active:focus {
+        color: $danger-states;
+      }
+    }
+
+    &.btn-info {
+      color: $info;
+
+      &:hover,
+      &:focus,
+      &:active,
+      &:active:focus {
+        color: $info-states;
+      }
+    }
+
+    &.btn-warning {
+      color: $warning;
+
+      &:hover,
+      &:focus,
+      &:active,
+      &:active:focus {
+        color: $warning-states;
+      }
+    }
+
+    &.btn-success {
+      color: $success;
+
+      &:hover,
+      &:focus,
+      &:active,
+      &:active:focus {
+        color: $success-states;
+      }
+    }
+
+    &.btn-default {
+      color: $default;
+
+      &:hover,
+      &:focus,
+      &:active,
+      &:active:focus {
+        color: $default-states;
+      }
+    }
+
+    &.active,
+    &:active,
+    &:active:focus,
+    &:active:hover,
+    &.active:focus,
+    &.active:hover,
+    .show > &.dropdown-toggle,
+    .show > &.dropdown-toggle:focus,
+    .show > &.dropdown-toggle:hover {
+      background-color: $white;
+      color: $primary-states;
+      box-shadow: none;
+    }
+
+    &:hover,
+    &:focus {
+      color: $primary-states;
+
+      &:not(.nav-link) {
+        box-shadow: none;
+      }
+    }
+  } @else {
+    color: $white;
+  }
+
+  &.btn-simple {
+    color: $btn-color;
+    border-color: $btn-color;
+    background: $transparent-bg;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &:not(:disabled):not(.disabled):active {
+      color: $btn-color;
+      border-color: $btn-color;
+      background-color: $transparent-bg !important;
+      background-image: none !important;
+      box-shadow: none;
+    }
+
+    &.active {
+      border-color: $btn-color !important;
+      &:hover,
+      &:focus,
+      &:active,
+      &:not(:disabled):not(.disabled):active {
+        color: $white;
+        border-color: $btn-color;
+        background-image: linear-gradient(
+          to bottom left,
+          $btn-color,
+          $btn-states-color,
+          $btn-color
+        ) !important;
+        background-image: -webkit-linear-gradient(
+          to bottom left,
+          $btn-color,
+          $btn-states-color,
+          $btn-color
+        ) !important;
+        background-image: -o-linear-gradient(
+          to bottom left,
+          $btn-color,
+          $btn-states-color,
+          $btn-color
+        ) !important;
+        background-image: -moz-linear-gradient(
+          to bottom left,
+          $btn-color,
+          $btn-states-color,
+          $btn-color
+        ) !important;
+        background-color: $btn-states-color !important;
+        box-shadow: none;
+      }
+    }
+  }
+
+  &.btn-link {
+    color: $btn-color;
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $transparent-bg !important;
+      background-image: none !important;
+      color: $white !important;
+      text-decoration: none;
+      box-shadow: none;
+    }
+  }
+}
+
+@mixin transition-input-focus-color() {
+  -webkit-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out,
+    background-color 0.3s ease-in-out;
+  -moz-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out,
+    background-color 0.3s ease-in-out;
+  -o-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out,
+    background-color 0.3s ease-in-out;
+  -ms-transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out,
+    background-color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out,
+    background-color 0.3s ease-in-out;
+}
+
+@mixin diagonal-gradient($start-color, $end-color) {
+  background: $start-color;
+  background-image: -webkit-linear-gradient(
+    to bottom left,
+    $start-color,
+    $end-color,
+    $start-color
+  );
+  background-image: -o-linear-gradient(
+    to bottom left,
+    $start-color,
+    $end-color,
+    $start-color
+  );
+  background-image: -moz-linear-gradient(
+    to bottom left,
+    $start-color,
+    $end-color,
+    $start-color
+  );
+  background-image: linear-gradient(
+    to bottom left,
+    $start-color,
+    $end-color,
+    $start-color
+  );
+  background-size: 210% 210%;
+  background-position: top right;
+}
