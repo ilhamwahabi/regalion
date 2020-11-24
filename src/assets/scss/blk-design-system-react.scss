@@ -15,7 +15,6 @@
 
 // Core
 
-@import "blk-design-system-react/custom/functions";
 @import "blk-design-system-react/bootstrap/functions";
 
 @import "blk-design-system-react/custom/variables";
@@ -34,11 +33,6 @@
 @import "blk-design-system-react/bootstrap/nav";
 @import "blk-design-system-react/bootstrap/navbar";
 @import "blk-design-system-react/bootstrap/utilities";
-
-// Custom components
-
-@import "blk-design-system-react/custom/navbar.scss";
-@import "blk-design-system-react/custom/type.scss";
 
 .form-control {
   border-color: lighten($black, 5%);
@@ -118,4 +112,91 @@
   &-water {
     @include btn-styles($water, $water);
   }
+}
+
+.navbar {
+  padding: $navbar-padding-x;
+  width: $full-width;
+  z-index: 1050;
+  background: $primary;
+
+  .navbar-nav {
+    .nav-item .nav-link {
+      position: relative;
+      color: inherit;
+      line-height: 20px;
+      display: inline-flex;
+      transition: color 0.25s;
+      &:hover {
+        color: $opacity-8;
+      }
+    }
+  }
+
+  &.navbar-transparent {
+    background: $transparent-bg !important;
+    padding-top: 25px;
+  }
+}
+
+.navbar-nav li {
+  padding: 0 10px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: $font-weight-normal;
+  color: $opacity-8;
+}
+
+a {
+  color: $primary-states;
+  font-weight: $font-weight-light;
+  &:hover,
+  &:focus {
+    color: $primary;
+  }
+}
+h1,
+.h1 {
+  line-height: 1.05;
+  margin-bottom: $margin-base-vertical * 2;
+}
+h2,
+.h2 {
+  margin-bottom: $margin-base-vertical * 2;
+  line-height: 1.2;
+}
+h3,
+.h3 {
+  margin-bottom: $margin-base-vertical * 2;
+  line-height: 1.4em;
+}
+h4,
+.h4 {
+  line-height: 1.45em;
+  margin-bottom: $margin-base-vertical;
+}
+h5,
+.h5 {
+  line-height: 1.4em;
+  margin-bottom: 15px;
+}
+h6,
+.h6 {
+  text-transform: uppercase;
+  font-weight: $font-weight-bold;
+}
+p {
+  color: $opacity-8;
+  margin-bottom: 5px;
+}
+
+ul li,
+ol li {
+  color: $white;
 }
