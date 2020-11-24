@@ -37,7 +37,85 @@
 
 // Custom components
 
-@import "blk-design-system-react/custom/buttons.scss";
-@import "blk-design-system-react/custom/forms.scss";
 @import "blk-design-system-react/custom/navbar.scss";
 @import "blk-design-system-react/custom/type.scss";
+
+.form-control {
+  border-color: lighten($black, 5%);
+  border-radius: $border-radius-lg;
+  font-size: $font-size-sm;
+  @include transition-input-focus-color();
+
+  &:focus {
+    border-color: $primary;
+    background-color: $input-bg;
+    @include box-shadow(none);
+  }
+}
+
+.btn {
+  border-width: $border-thick;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  margin: 4px 1px;
+  border-radius: $border-radius-lg;
+  cursor: pointer;
+
+  @include btn-styles($default, $default-states);
+
+  &-bug {
+    @include btn-styles($bug, $bug);
+  }
+  &-dark {
+    @include btn-styles($dark, $dark);
+  }
+  &-dragon {
+    @include btn-styles($dragon, $dragon);
+  }
+  &-electric {
+    @include btn-styles($electric, $electric);
+  }
+  &-fairy {
+    @include btn-styles($fairy, $fairy);
+  }
+  &-flying {
+    @include btn-styles($flying, $flying);
+  }
+  &-fighting {
+    @include btn-styles($fighting, $fighting);
+  }
+  &-ghost {
+    @include btn-styles($ghost, $ghost);
+  }
+  &-grass {
+    @include btn-styles($grass, $grass);
+  }
+  &-ground {
+    @include btn-styles($ground, $ground);
+  }
+  &-normal {
+    @include btn-styles($normal, $normal);
+  }
+  &-poison {
+    @include btn-styles($poison, $poison);
+  }
+  &-psychic {
+    @include btn-styles($psychic, $psychic);
+  }
+  &-rock {
+    @include btn-styles($rock, $rock);
+  }
+  &-steel {
+    @include btn-styles($steel, $steel);
+  }
+  &-fire {
+    @include btn-styles($fire, $fire);
+  }
+  &-ice {
+    @include btn-styles($ice, $ice);
+  }
+  &-water {
+    @include btn-styles($water, $water);
+  }
+}
