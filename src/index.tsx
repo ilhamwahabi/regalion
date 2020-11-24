@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
 
-import "assets/scss/blk-design-system-react.scss?v=1.0.0";
+import "assets/scss/index.scss";
 
 import App from "./components/App";
 import { store, persistor } from "./configureStore";

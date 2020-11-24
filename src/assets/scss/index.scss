@@ -1,6 +1,6 @@
-@import "blk-design-system-react/bootstrap/functions";
+@import "bootstrap/functions";
 
-@import "blk-design-system-react/custom/variables";
+@import "custom/variables";
 
 $paragraph-margin-bottom: 1rem !default;
 
@@ -19,10 +19,10 @@ $line-height-base: 1.5 !default;
 $btn-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
   border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !default;
 
-@import "blk-design-system-react/custom/mixins";
-@import "blk-design-system-react/bootstrap/mixins";
+@import "custom/mixins";
+@import "bootstrap/mixins";
 
-@import "blk-design-system-react/bootstrap/reboot";
+@import "bootstrap/reboot";
 
 h1,
 h2,
@@ -241,7 +241,7 @@ h6,
   }
 }
 
-@import "blk-design-system-react/bootstrap/utilities";
+@import "bootstrap/utilities";
 
 .form-control {
   border-color: lighten($black, 5%);
