@@ -72,9 +72,37 @@ h6,
 }
 
 @import "blk-design-system-react/bootstrap/grid";
-@import "blk-design-system-react/bootstrap/forms";
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: $input-height;
+  padding: $input-padding-y $input-padding-x;
+  font-size: $font-size-base;
+  line-height: $input-line-height;
+  color: $input-color;
+  background-color: $input-bg;
+  background-clip: padding-box;
+  border: $input-border-width solid $input-border-color;
+
+  // Customize the `:focus` state to imitate native WebKit styles.
+  @include form-control-focus();
+}
+
 @import "blk-design-system-react/bootstrap/buttons";
-@import "blk-design-system-react/bootstrap/nav";
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+.nav-link {
+  display: block;
+  padding: $nav-link-padding-y $nav-link-padding-x;
+}
 
 .navbar {
   position: relative;
