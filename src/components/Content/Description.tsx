@@ -100,7 +100,7 @@ const Description = (props: IDescriptionProps) => {
         </Row>
         <Row className="text-center mt-3 mb-4 mb-sm-0">
           {family.evolutionLine.length === 1 ? (
-            <div className="h4 text-white mt-1" style={{ margin: "0 auto" }}>
+            <div className="h4 mt-1" style={{ margin: "0 auto", color: '#fff' }}>
               This Pokémon has no evolution line
             </div>
           ) : (
@@ -111,7 +111,7 @@ const Description = (props: IDescriptionProps) => {
                 key={index}
               >
                 <img width="60" src={sprite} alt={name} />
-                <h6 className="mt-3 mb-0 text-white">{name}</h6>
+                <h6 className="mt-3 mb-0">{name}</h6>
               </Col>
             ))
           )}
