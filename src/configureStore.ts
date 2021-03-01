@@ -8,7 +8,7 @@ import autoMergeLevel2 from "redux-persist/lib/stateReconciler/autoMergeLevel2";
 import reducers from "./reducers";
 
 const persistConfig = {
-  key: "regalion",
+  key: "bespoke",
   storage,
   stateReconciler: autoMergeLevel2,
   blacklist: ["loading", "form"]

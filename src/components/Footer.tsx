@@ -5,7 +5,7 @@ import { FaRegCopyright, FaTwitter, FaGithub } from "react-icons/fa";
 
 const { twitter, github } = {
   twitter: "https://twitter.com/ilhamwahabigx",
-  github: "https://github.com/iwgx/regalion"
+  github: "https://github.com/iwgx/bespoke"
 };
 
 const Footer = () => {
