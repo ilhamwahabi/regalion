@@ -1,14 +1,15 @@
 {
-  "name": "regalion",
+  "name": "bespoke",
   "version": "1.0.0",
   "description": "Pokedex app",
   "main": "index.js",
   "author": "Ilham Wahabi",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/iwgx/regalion"
+    "url": "https://github.com/iwgx/bespoke"
   },
   "dependencies": {
+    "@splitbee/web": "^0.2.4",
     "@types/axios": "^0.14.0",
     "@types/jest": "^25.1.3",
     "@types/node": "^13.7.6",
