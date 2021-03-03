@@ -10,7 +10,10 @@ import App from "./components/App";
 import { store, persistor } from "./configureStore";
 import LoadingScreen from "./components/Loading";
 
-splitbee.init()
+splitbee.init({
+  scriptUrl: "/bee.js",
+  apiUrl: "/_hive",
+})
 
 ReactDOM.render(
   <Provider store={store}>
