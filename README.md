@@ -1,4 +1,4 @@
-# Bespoke
+# Regalion
 
 ## Description
 
@@ -11,8 +11,6 @@ Redux for state management. With help by redux-thunk, redux-persist and redux-fo
 Deployed to Vercel.
 
 ## Usage
-
-Try directly here: https://bespoke.iwgx.io
 
 Or if you want to try on your machine:
 
