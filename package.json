@@ -5,8 +5,10 @@
   "main": "index.js",
   "author": "Ilham Wahabi",
   "license": "MIT",
+  "packageManager": "npm@11.12.1",
   "engines": {
-    "node": ">=20"
+    "node": "24.15.0",
+    "npm": "11.12.1"
   },
   "bugs": {
     "url": "https://github.com/ilhamwahabi/regalion"
