@@ -341,25 +341,14 @@ export const isStarterPokemon = (speciesId: number, isDefault: boolean) =>
 export const isUltraBeast = (speciesName: string) =>
   ULTRA_BEASTS.has(speciesName);
 
-export const buildFamily = (
-  evolutionPath: EvolutionNode[],
-  currentFormName: string,
-  currentSprite: string,
-  currentIsMega: boolean
-) => {
-  const evolutionLine = evolutionPath.map((node, index) => {
-    const isLast = index === evolutionPath.length - 1;
+export const buildFamily = (evolutionPath: EvolutionNode[]) => {
+  const evolutionLine = evolutionPath.map(node => {
     const speciesId = getSpeciesIdFromUrl(node.species.url);
 
     return {
-      name: isLast && currentIsMega
-        ? formatPokemonName(currentFormName)
-        : formatPokemonName(node.species.name),
+      name: formatPokemonName(node.species.name),
       number: speciesId.toString(),
-      sprite:
-        isLast && currentIsMega
-          ? currentSprite
-          : `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${speciesId}.png`
+      sprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${speciesId}.png`
     };
   });
 

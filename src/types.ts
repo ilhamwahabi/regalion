@@ -46,6 +46,7 @@ export interface IPokemon {
   mythical: boolean;
   ultraBeast: boolean;
   mega: boolean;
+  isDefault: boolean;
   gen: number;
   sprite: string;
   description: string;

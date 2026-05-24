@@ -42,7 +42,7 @@ const Footer = () => {
       <NavItem>
         <NavLink href={github} target="_blank" rel="noopener">
           <GithubIcon style={{ marginRight: 5, fontSize: 18 }} />
-          iwgx
+          ilhamwahabi
         </NavLink>
       </NavItem>
     </Nav>

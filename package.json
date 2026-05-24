@@ -9,7 +9,7 @@
     "node": ">=20"
   },
   "bugs": {
-    "url": "https://github.com/iwgx/regalion"
+    "url": "https://github.com/ilhamwahabi/regalion"
   },
   "dependencies": {
     "@emotion/css": "^11.13.5",
