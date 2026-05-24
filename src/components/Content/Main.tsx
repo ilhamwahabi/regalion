@@ -60,14 +60,10 @@ const Sprite = (props: ISpriteProps) => {
   );
 
   const renderPokemonAvailableForm = () => {
-    const alternateForms = pokemon
-      .map((form, index) => ({ form, index }))
-      .filter(({ form }) => !form.isDefault);
-
     return (
       <div className={pokemonFormScrollStyle}>
         <div className={pokemonFormListStyle}>
-          {alternateForms.map(({ form, index }) => (
+          {pokemon.map((form, index) => (
             <div key={index} className={formItemStyle}>
               <img
                 src={form.sprite}
@@ -131,7 +127,7 @@ const Sprite = (props: ISpriteProps) => {
     <Col md="10" lg="4" className={containerStyle}>
       {renderPokemonHeader()}
       {renderPokemonSprite()}
-      {pokemon.some(form => !form.isDefault) && renderPokemonAvailableForm()}
+      {pokemon.some((form) => !form.isDefault) && renderPokemonAvailableForm()}
       {renderPokemonNextAndPreviousArrow()}
     </Col>
   );

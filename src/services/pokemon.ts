@@ -1,4 +1,4 @@
-import api, { getApiPath } from "../api";
+import { getPokedex, getResourceIdFromUrl } from "../lib/pokedex";
 import { IPokemon, IPreviewPokemon } from "../types";
 import {
   buildFamily,
@@ -59,7 +59,8 @@ const fetchPreview = async (id: number): Promise<IPreviewPokemon> => {
   if (id < 1) return {};
 
   try {
-    const { data } = await api.get<PokeApiPokemon>(`/pokemon/${id}`);
+    const pokedex = await getPokedex();
+    const data = (await pokedex.getPokemonByName(id)) as PokeApiPokemon;
     return {
       name: formatPokemonName(data.name),
       number: data.id.toString(),
@@ -122,12 +123,17 @@ export const fetchPokemonByNumber = async (
   pokemonNumber: string
 ): Promise<IPokemon[]> => {
   const speciesId = parseInt(pokemonNumber, 10);
-  const { data: species } = await api.get<PokeApiSpecies>(
-    `/pokemon-species/${speciesId}`
-  );
-  const { data: evolutionChainData } = await api.get<{ chain: EvolutionNode }>(
-    getApiPath(species.evolution_chain.url)
-  );
+  const pokedex = await getPokedex();
+
+  const species = (await pokedex.getPokemonSpeciesByName(
+    speciesId
+  )) as PokeApiSpecies;
+
+  const evolutionChainId = getResourceIdFromUrl(species.evolution_chain.url);
+  const evolutionChainData = (await pokedex.getEvolutionChainById(
+    evolutionChainId
+  )) as { chain: EvolutionNode };
+
   const [previous, next] = await Promise.all([
     fetchPreview(speciesId - 1),
     fetchPreview(speciesId + 1)
@@ -135,9 +141,10 @@ export const fetchPokemonByNumber = async (
 
   const forms = await Promise.all(
     species.varieties.map(async variety => {
-      const { data: pokemon } = await api.get<PokeApiPokemon>(
-        getApiPath(variety.pokemon.url)
-      );
+      const pokemonId = getResourceIdFromUrl(variety.pokemon.url);
+      const pokemon = (await pokedex.getPokemonByName(
+        pokemonId
+      )) as PokeApiPokemon;
 
       return transformPokemon(
         pokemon,
