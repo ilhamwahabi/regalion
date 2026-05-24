@@ -1,5 +1,5 @@
 {
-  "name": "bespoke",
+  "name": "regalion",
   "version": "1.0.0",
   "description": "Pokedex app",
   "main": "index.js",
@@ -9,7 +9,7 @@
     "node": ">=20"
   },
   "bugs": {
-    "url": "https://github.com/iwgx/bespoke"
+    "url": "https://github.com/iwgx/regalion"
   },
   "dependencies": {
     "@emotion/css": "^11.13.5",

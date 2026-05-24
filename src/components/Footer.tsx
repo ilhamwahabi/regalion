@@ -1,15 +1,11 @@
 import React from "react";
 import { Navbar, NavItem, NavLink, Nav, Container } from "reactstrap";
 import { css } from "@emotion/css";
-import {
-  FaRegCopyright,
-  FaTwitter,
-  FaGithub
-} from "react-icons/fa";
+import { FaRegCopyright, FaTwitter, FaGithub } from "react-icons/fa";
 
 const { twitter, github } = {
   twitter: "https://twitter.com/ilhamwahabigx",
-  github: "https://github.com/iwgx/bespoke"
+  github: "https://github.com/ilhamwahabi/regalion",
 };
 
 type IconProps = React.SVGProps<SVGSVGElement> & {
