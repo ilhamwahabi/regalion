@@ -52,7 +52,7 @@ const Sprite = (props: ISpriteProps) => {
     </Row>
   );
 
-  const renderPokemonHeader = () => (
+  const renderPokemonNameAndNumber = () => (
     <div className={pokemonHeaderStyle}>
       <p className={pokemonNameStyle}>{name}</p>
       <p className={pokemonNumberStyle}>#{number}</p>
@@ -60,6 +60,8 @@ const Sprite = (props: ISpriteProps) => {
   );
 
   const renderPokemonAvailableForm = () => {
+    // Don't have alternate forms
+    if (!pokemon.some((form) => !form.isDefault)) return null;
     return (
       <div className={pokemonFormScrollStyle}>
         <div className={pokemonFormListStyle}>
@@ -125,9 +127,9 @@ const Sprite = (props: ISpriteProps) => {
 
   return (
     <Col md="10" lg="4" className={containerStyle}>
-      {renderPokemonHeader()}
+      {renderPokemonNameAndNumber()}
       {renderPokemonSprite()}
-      {pokemon.some((form) => !form.isDefault) && renderPokemonAvailableForm()}
+      {renderPokemonAvailableForm()}
       {renderPokemonNextAndPreviousArrow()}
     </Col>
   );
@@ -176,6 +178,11 @@ const pokemonHeaderStyle = css`
   flex-wrap: wrap;
   gap: 0.5rem 1rem;
   text-align: center;
+
+  @media (max-width: 480px) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 `;
 
 const pokemonNameStyle = css`
