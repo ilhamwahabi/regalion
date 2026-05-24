@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { css } from "emotion";
+import { css } from "@emotion/css";
 
 import Footer from "./Footer";
 import Searchbar from "./Searchbar";

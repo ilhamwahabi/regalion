@@ -1,19 +1,32 @@
 import React from "react";
 import { Navbar, NavItem, NavLink, Nav, Container } from "reactstrap";
-import { css } from "emotion";
-import { FaRegCopyright, FaTwitter, FaGithub } from "react-icons/fa";
+import { css } from "@emotion/css";
+import {
+  FaRegCopyright,
+  FaTwitter,
+  FaGithub
+} from "react-icons/fa";
 
 const { twitter, github } = {
   twitter: "https://twitter.com/ilhamwahabigx",
   github: "https://github.com/iwgx/bespoke"
 };
 
+type IconProps = React.SVGProps<SVGSVGElement> & {
+  size?: string | number;
+  title?: string;
+};
+
+const CopyrightIcon = FaRegCopyright as React.ComponentType<IconProps>;
+const TwitterIcon = FaTwitter as React.ComponentType<IconProps>;
+const GithubIcon = FaGithub as React.ComponentType<IconProps>;
+
 const Footer = () => {
   const renderCopyright = () => (
     <Nav className="w-100 d-flex justify-content-center justify-content-lg-between">
       <NavItem>
         <NavLink className="text-center">
-          <FaRegCopyright
+          <CopyrightIcon
             style={{ marginBottom: 3, marginRight: 5, fontSize: 15 }}
           />
           Nintendo, Game Freak, and The Pokémon Company
@@ -26,13 +39,13 @@ const Footer = () => {
     <Nav className="ml-auto d-none d-lg-flex" navbar>
       <NavItem>
         <NavLink href={twitter} target="_blank" rel="noopener">
-          <FaTwitter style={{ marginRight: 5, fontSize: 18 }} />
+          <TwitterIcon style={{ marginRight: 5, fontSize: 18 }} />
           @ilhamwahabigx
         </NavLink>
       </NavItem>
       <NavItem>
         <NavLink href={github} target="_blank" rel="noopener">
-          <FaGithub style={{ marginRight: 5, fontSize: 18 }} />
+          <GithubIcon style={{ marginRight: 5, fontSize: 18 }} />
           iwgx
         </NavLink>
       </NavItem>

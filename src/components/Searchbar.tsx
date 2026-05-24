@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Navbar, Container, Input, Form, FormGroup } from "reactstrap";
 import { Field, reduxForm, InjectedFormProps, Validator } from "redux-form";
 import { connect } from "react-redux";
-import { css } from "emotion";
+import { css } from "@emotion/css";
 
 import { changePokemon } from "../actions";
 import { pokemonNames } from "../assets/ts/name";

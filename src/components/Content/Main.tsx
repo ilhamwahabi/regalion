@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Col } from "reactstrap";
 import { connect } from "react-redux";
-import { css } from "emotion";
+import { css } from "@emotion/css";
 
 import { ReactComponent as Arrow } from "../../assets/arrow.svg";
 import { changeCurrentForm, changePokemon } from "../../actions";
