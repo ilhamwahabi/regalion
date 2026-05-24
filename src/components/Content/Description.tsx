@@ -66,7 +66,7 @@ const Description = (props: IDescriptionProps) => {
               </div>
             ))}
             {abilities.normal.length === 0 && (
-              <div className="display-4 text-white">-</div>
+              <div className={abilityValueStyle}>-</div>
             )}
           </Col>
           <Col>
@@ -77,7 +77,7 @@ const Description = (props: IDescriptionProps) => {
               </div>
             ))}
             {abilities.hidden.length === 0 && (
-              <div className="display-4 text-white">-</div>
+              <div className={abilityValueStyle}>-</div>
             )}
           </Col>
         </Row>
