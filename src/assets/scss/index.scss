@@ -321,6 +321,29 @@ h6,
   &-water {
     @include btn-styles($water, $water);
   }
+
+  // Dark text on lighter official type colors for readable badges
+  &-electric,
+  &-ice,
+  &-normal,
+  &-fairy,
+  &-ground,
+  &-steel,
+  &-grass,
+  &-bug,
+  &-rock {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active,
+    &:active:focus,
+    &:active:hover,
+    &.active:focus,
+    &.active:hover {
+      color: rgba($black, 0.85) !important;
+    }
+  }
 }
 
 .navbar {

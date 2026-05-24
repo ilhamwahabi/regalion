@@ -102,26 +102,26 @@ $light: $gray-500 !default;
 // $dark:          $gray-900 !default;
 $darker: darken($gray-900, 15%) !default;
 
-// Pokemon Type Theme
+// Pokemon Type Theme (official palette)
 
-$bug: #8ac249 !default;
-$dark: #705848 !default;
-$dragon: #6639b6 !default;
-$electric: #ffc107 !default;
-$fairy: #ff80ab !default;
-$flying: #9575cd !default;
-$fighting: #bf360c !default;
-$ghost: #311b92 !default;
-$grass: #00c853 !default;
-$ground: #8d6e63 !default;
 $normal: #a8a878 !default;
-$poison: #6a1b9a !default;
-$psychic: #f50057 !default;
+$fire: #ee8130 !default;
+$water: #6890f0 !default;
+$electric: #f8d030 !default;
+$grass: #78c850 !default;
+$ice: #98d8d8 !default;
+$fighting: #c03028 !default;
+$poison: #a040a0 !default;
+$ground: #e0c068 !default;
+$flying: #a890f0 !default;
+$psychic: #f85888 !default;
+$bug: #a8b820 !default;
 $rock: #b8a038 !default;
-$steel: #607d8b !default;
-$fire: #f44336 !default;
-$ice: #00f2c3 !default;
-$water: #1d8cf8 !default;
+$ghost: #705898 !default;
+$dragon: #7038f8 !default;
+$dark: #705848 !default;
+$steel: #b8b8d0 !default;
+$fairy: #ee99ac !default;
 
 $theme-colors: () !default;
 $theme-colors: map-merge(

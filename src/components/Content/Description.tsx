@@ -138,6 +138,14 @@ const containerStyle = css`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @media (max-width: 991px) {
+    margin-top: 1.5rem;
+  }
+
+  @media (max-width: 767px) {
+    margin-top: 2rem;
+  }
 `;
 
 const typeBadgeStyle = css`

@@ -19,7 +19,7 @@ const GithubIcon = FaGithub as React.ComponentType<IconProps>;
 
 const Footer = () => {
   const renderCopyright = () => (
-    <Nav className="w-100 d-flex justify-content-center justify-content-lg-between">
+    <Nav className="d-flex justify-content-center">
       <NavItem>
         <NavLink className="text-center">
           <CopyrightIcon
@@ -32,7 +32,7 @@ const Footer = () => {
   );
 
   const renderSocialMedia = () => (
-    <Nav className="ml-auto d-none d-lg-flex" navbar>
+    <Nav className={socialNavStyle} navbar>
       <NavItem>
         <NavLink href={twitter} target="_blank" rel="noopener">
           <TwitterIcon style={{ marginRight: 5, fontSize: 18 }} />
@@ -53,7 +53,7 @@ const Footer = () => {
       <div id="footer">
         <div className="navigation">
           <Navbar className={navigationStyle} expand="sm">
-            <Container>
+            <Container className={footerContainerStyle}>
               {renderCopyright()}
               {renderSocialMedia()}
             </Container>
@@ -63,6 +63,34 @@ const Footer = () => {
     </footer>
   );
 };
+
+const footerContainerStyle = css`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+
+  @media (min-width: 992px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+`;
+
+const socialNavStyle = css`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+
+  @media (min-width: 992px) {
+    margin-left: auto;
+  }
+`;
 
 const navigationStyle = css`
   z-index: 10;
