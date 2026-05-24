@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Button } from "reactstrap";
+import { Row, Col } from "reactstrap";
 import { connect } from "react-redux";
 import { css } from "@emotion/css";
 
@@ -29,7 +29,9 @@ const Description = (props: IDescriptionProps) => {
       <Row className="mb-2 mb-md-3">
         {types.map((type, index) => (
           <Col key={index} className="text-center">
-            <Button color={type.toLowerCase()}>{type}</Button>
+            <span className={`btn btn-${type.toLowerCase()} ${typeBadgeStyle}`}>
+              {type}
+            </span>
           </Col>
         ))}
       </Row>
@@ -91,17 +93,19 @@ const Description = (props: IDescriptionProps) => {
         <Row className="mt-2 mt-md-3">
           <h4 className="m-auto">Evolution Line</h4>
         </Row>
-        <Row className="text-center mt-3 mb-4 mb-sm-0">
+        <Row className="text-center mt-3 mb-4 mb-sm-0 justify-content-center">
           {family.evolutionLine.length === 1 ? (
-            <div
-              className="h4 mt-1"
-              style={{ margin: "0 auto", color: "#fff" }}
-            >
-              This Pokémon has no evolution line
-            </div>
+            <Col xs={12}>
+              <div className={evolutionLineContainerStyle}>
+                <p className={evolutionLineEmptyStyle}>
+                  This Pokémon has no evolution line
+                </p>
+              </div>
+            </Col>
           ) : (
             family.evolutionLine.map(({ name, number: i, sprite }, index) => (
               <Col
+                className={evolutionLineContainerStyle}
                 onClick={() => pokemonName !== name && changePokemon(i)}
                 style={{ cursor: "pointer" }}
                 key={index}
@@ -132,6 +136,19 @@ const containerStyle = css`
   justify-content: center;
 `;
 
+const typeBadgeStyle = css`
+  cursor: default;
+  pointer-events: none;
+  user-select: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+`;
+
 const heightWeightValueStyle = css`
   font-size: 2.25rem;
   font-weight: 600;
@@ -159,6 +176,27 @@ const abilityValueStyle = css`
   @media (max-width: 768px) {
     font-size: 1.25rem;
   }
+`;
+
+const evolutionLineContainerStyle = css`
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+`;
+
+const evolutionLineEmptyStyle = css`
+  margin: 0;
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.2;
+  align-self: center;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const mapStateToProps = (state: IState) => {
