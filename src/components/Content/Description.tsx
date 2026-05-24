@@ -62,25 +62,29 @@ const Description = (props: IDescriptionProps) => {
         <Row className="text-center mt-2 mb-3">
           <Col>
             <h5 className={abilityLabelStyle}>Normal</h5>
-            {abilities.normal.map((ability, index) => (
-              <div key={index} className={abilityValueStyle}>
-                {ability}
-              </div>
-            ))}
-            {abilities.normal.length === 0 && (
-              <div className={abilityValueStyle}>-</div>
-            )}
+            <div className={abilityContainerStyle}>
+              {abilities.normal.map((ability, index) => (
+                <div key={index} className={abilityValueStyle}>
+                  {ability}
+                </div>
+              ))}
+              {abilities.normal.length === 0 && (
+                <div className={abilityValueStyle}>-</div>
+              )}
+            </div>
           </Col>
           <Col>
             <h5 className={abilityLabelStyle}>Hidden</h5>
-            {abilities.hidden.map((ability, index) => (
-              <div key={index} className={abilityValueStyle}>
-                {ability}
-              </div>
-            ))}
-            {abilities.hidden.length === 0 && (
-              <div className={abilityValueStyle}>-</div>
-            )}
+            <div className={abilityContainerStyle}>
+              {abilities.hidden.map((ability, index) => (
+                <div key={index} className={abilityValueStyle}>
+                  {ability}
+                </div>
+              ))}
+              {abilities.hidden.length === 0 && (
+                <div className={abilityValueStyle}>-</div>
+              )}
+            </div>
           </Col>
         </Row>
       </>
@@ -197,6 +201,10 @@ const evolutionLineEmptyStyle = css`
   display: flex;
   align-items: center;
   justify-content: center;
+`;
+
+const abilityContainerStyle = css`
+  height: 50px;
 `;
 
 const mapStateToProps = (state: IState) => {

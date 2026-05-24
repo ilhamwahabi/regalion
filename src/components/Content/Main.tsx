@@ -60,35 +60,32 @@ const Sprite = (props: ISpriteProps) => {
 
   const renderPokemonAvailableForm = () => (
     <div className={pokemonFormStyle}>
-      {pokemon.map(
-        (form, index) =>
-          index !== currentForm && (
-            <div key={index} className={formItemStyle}>
-              <img
-                src={form.sprite}
-                alt={form.name}
-                title={form.name}
-                loading="lazy"
-                className={css`
-                  width: 43px;
-                  height: 43px;
-                  object-fit: contain;
-                  padding: 10px;
-                  box-sizing: content-box;
-                  background-color: rgba(${form.palettes.lightMuted}, 0.25);
-                  border-radius: 50%;
-                  border: 1.5px solid transparent;
-                  transition: border 0.5s;
+      {pokemon.map((form, index) => (
+        <div key={index} className={formItemStyle}>
+          <img
+            src={form.sprite}
+            alt={form.name}
+            title={form.name}
+            loading="lazy"
+            className={css`
+              width: 43px;
+              height: 43px;
+              object-fit: contain;
+              padding: 10px;
+              box-sizing: content-box;
+              background-color: rgba(${form.palettes.lightMuted}, 0.25);
+              border-radius: 50%;
+              border: 1.5px solid transparent;
+              transition: border 0.5s;
 
-                  &:hover {
-                    border: 1.5px solid rgb(${form.palettes.lightMuted});
-                  }
-                `}
-                onClick={() => changeCurrentForm(index)}
-              />
-            </div>
-          )
-      )}
+              &:hover {
+                border: 1.5px solid rgb(${form.palettes.lightMuted});
+              }
+            `}
+            onClick={() => changeCurrentForm(index)}
+          />
+        </div>
+      ))}
     </div>
   );
 
@@ -270,5 +267,5 @@ const mapStateToProps = (state: IState) => {
 };
 
 export default connect(mapStateToProps, { changeCurrentForm, changePokemon })(
-  Sprite
+  Sprite,
 );
