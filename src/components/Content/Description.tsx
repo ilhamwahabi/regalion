@@ -21,15 +21,8 @@ interface IDescriptionProps {
 }
 
 const Description = (props: IDescriptionProps) => {
-  const {
-    name,
-    types,
-    height,
-    weight,
-    abilities,
-    family,
-    changePokemon
-  } = props;
+  const { name, types, height, weight, abilities, family, changePokemon } =
+    props;
 
   const renderTypes = () => {
     return (
@@ -100,7 +93,10 @@ const Description = (props: IDescriptionProps) => {
         </Row>
         <Row className="text-center mt-3 mb-4 mb-sm-0">
           {family.evolutionLine.length === 1 ? (
-            <div className="h4 mt-1" style={{ margin: "0 auto", color: '#fff' }}>
+            <div
+              className="h4 mt-1"
+              style={{ margin: "0 auto", color: "#fff" }}
+            >
               This Pokémon has no evolution line
             </div>
           ) : (
@@ -167,9 +163,8 @@ const abilityValueStyle = css`
 
 const mapStateToProps = (state: IState) => {
   const { pokemons, currentPokemon, currentForm } = state.pokemon;
-  const { name, types, height, weight, abilities, family } = pokemons[
-    currentPokemon
-  ][currentForm];
+  const { name, types, height, weight, abilities, family } =
+    pokemons[currentPokemon][currentForm];
 
   return { name, types, height, weight, abilities, family };
 };

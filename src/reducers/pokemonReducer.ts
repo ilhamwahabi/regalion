@@ -1,5 +1,4 @@
 import { IPokemon } from "../types";
-import { getInitialRandomPokemon } from "../assets/ts";
 
 export interface IPokemonState {
   pokemons: { [key: string]: IPokemon[] };
@@ -7,18 +6,14 @@ export interface IPokemonState {
   currentForm: number;
 }
 
-const getInitialState = (): IPokemonState => {
-  const { currentPokemon, randomPokemon } = getInitialRandomPokemon();
-
-  return {
-    pokemons: { [currentPokemon]: randomPokemon },
-    currentPokemon: currentPokemon,
-    currentForm: 0
-  };
+const initialState: IPokemonState = {
+  pokemons: {},
+  currentPokemon: "",
+  currentForm: 0
 };
 
 const pokemonReducer = (
-  state = getInitialState(),
+  state = initialState,
   action: { type: string; payload: any }
 ): IPokemonState => {
   switch (action.type) {

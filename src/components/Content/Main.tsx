@@ -63,29 +63,22 @@ const Sprite = (props: ISpriteProps) => {
       {pokemon.map(
         (form, index) =>
           index !== currentForm && (
-            <div
-              key={index}
-              style={{
-                cursor: "pointer",
-                marginRight: 15,
-                marginLeft: `${
-                  (index === 1 && currentForm === 0) || index === 0 ? 0 : 15
-                }px`
-              }}
-            >
+            <div key={index} className={formItemStyle}>
               <img
                 src={form.sprite}
                 alt={form.name}
                 title={form.name}
+                loading="lazy"
                 className={css`
-                  margin: 0 10px;
+                  width: 43px;
+                  height: 43px;
+                  object-fit: contain;
                   padding: 10px;
                   box-sizing: content-box;
                   background-color: rgba(${form.palettes.lightMuted}, 0.25);
                   border-radius: 50%;
                   border: 1.5px solid transparent;
                   transition: border 0.5s;
-                  max-width: 100%;
 
                   &:hover {
                     border: 1.5px solid rgb(${form.palettes.lightMuted});
@@ -223,21 +216,49 @@ const pokemonNumberStyle = css`
   }
 `;
 
+const formItemStyle = css`
+  flex-shrink: 0;
+  cursor: pointer;
+`;
+
 const pokemonFormStyle = css`
-  bottom: 0px;
+  bottom: 0;
   left: 10px;
-  max-width: 10%;
+  max-width: calc(100% - 120px);
   position: absolute;
   display: flex;
+  flex-wrap: nowrap;
+  gap: 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
   z-index: 2;
+  padding-bottom: 4px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
+
+  &::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 2px;
+  }
 
   @media (min-width: 768px) and (max-width: 1024px) {
     bottom: 5%;
+    max-width: 50%;
+  }
+
+  @media (min-width: 1025px) {
+    max-width: 45%;
   }
 
   @media (max-width: 767px) {
     left: 20px;
     bottom: 10px;
+    max-width: calc(100% - 90px);
   }
 `;
 

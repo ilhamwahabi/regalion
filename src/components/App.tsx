@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { css } from "@emotion/css";
 
@@ -7,15 +7,38 @@ import Searchbar from "./Searchbar";
 import Content from "./Content";
 import Loading from "./Loading";
 
+import { initRandomPokemon } from "../actions";
 import { IPalettes } from "../types";
 import { IState } from "../reducers";
+import { getDefaultPalette } from "../utils/pokemonFormat";
 
 interface IAppProps {
   palettes: IPalettes;
+  initialized: boolean;
+  initRandomPokemon: () => void;
 }
 
 const App = (props: IAppProps) => {
-  const { palettes } = props;
+  const { palettes, initialized, initRandomPokemon } = props;
+
+  useEffect(() => {
+    if (!initialized) {
+      initRandomPokemon();
+    }
+  }, [initialized, initRandomPokemon]);
+
+  if (!initialized) {
+    const defaultPalette = getDefaultPalette();
+
+    return (
+      <div
+        className={appStyle}
+        style={{ backgroundColor: `rgb(${defaultPalette.darkMuted})` }}
+      >
+        <Loading />
+      </div>
+    );
+  }
 
   return (
     <div
@@ -46,9 +69,12 @@ const appStyle = css`
 
 const mapStateToProps = (state: IState) => {
   const { pokemons, currentPokemon, currentForm } = state.pokemon;
-  const { palettes } = pokemons[currentPokemon][currentForm];
+  const initialized = Boolean(currentPokemon && pokemons[currentPokemon]);
+  const palettes = initialized
+    ? pokemons[currentPokemon][currentForm].palettes
+    : getDefaultPalette();
 
-  return { palettes };
+  return { palettes, initialized };
 };
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, { initRandomPokemon })(App);
