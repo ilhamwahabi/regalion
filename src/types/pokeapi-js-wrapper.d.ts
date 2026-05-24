@@ -18,6 +18,9 @@ declare module "pokeapi-js-wrapper" {
     getPokemonSpeciesByName(
       nameOrId: string | number | Array<string | number>
     ): Promise<unknown>;
+    getPokemonSpeciesList(
+      options?: { offset?: number; limit?: number }
+    ): Promise<unknown>;
     getEvolutionChainById(
       id: number | Array<number>
     ): Promise<unknown>;

@@ -1,37 +1,41 @@
 import React, { Component } from "react";
 import { Navbar, Container, Input, Form, FormGroup } from "reactstrap";
-import { Field, reduxForm, InjectedFormProps, Validator } from "redux-form";
+import {
+  Field,
+  reduxForm,
+  InjectedFormProps,
+  SubmissionError
+} from "redux-form";
 import { connect } from "react-redux";
 import { css } from "@emotion/css";
 
-import { changePokemon } from "../actions";
-import { pokemonNames } from "../assets/ts/name";
+import { searchPokemonByName } from "../actions";
 import { IPalettes } from "../types";
 import { IState } from "../reducers";
 
 interface INavbarProps {
-  name: string;
   palettes: IPalettes;
-  changePokemon: (index: string) => void;
+  searchPokemonByName: (query: string) => Promise<string | null>;
+}
+
+interface ISearchFormValues {
+  search?: string;
 }
 
 class Searchbar extends Component<
-  INavbarProps & InjectedFormProps<{}, INavbarProps>
+  INavbarProps & InjectedFormProps<ISearchFormValues, INavbarProps>
 > {
-  onSearchPokemon = (submitProps: any) => {
+  onSearchPokemon = async (submitProps: ISearchFormValues) => {
     const { search } = submitProps;
-    const { name, changePokemon } = this.props;
+    const { searchPokemonByName } = this.props;
+    const trimmed = search?.trim();
 
-    // If it's same with current pokemon don't do search
-    if (name.toLowerCase() === search.toLowerCase()) return;
+    if (!trimmed) return;
 
-    // If name is not valid don't do search
-    const findIndex = pokemonNames.findIndex(
-      availableName => availableName.toLowerCase() === search.toLowerCase()
-    );
-    if (findIndex === -1) return;
-
-    changePokemon((findIndex + 1).toString());
+    const error = await searchPokemonByName(trimmed);
+    if (error) {
+      throw new SubmissionError({ search: error });
+    }
   };
 
   renderField = (fieldProps: any) => {
@@ -39,9 +43,10 @@ class Searchbar extends Component<
     const { palettes } = this.props;
 
     const textColor = `rgb(${palettes.lightMuted})`;
-    const borderColor = meta.valid
-      ? `rgb(${palettes.lightMuted})`
-      : `rgb(${palettes.darkVibrant})`;
+    const hasError = meta.submitFailed && meta.error;
+    const borderColor = hasError
+      ? `rgb(${palettes.darkVibrant})`
+      : `rgb(${palettes.lightMuted})`;
 
     return (
       <Input
@@ -61,8 +66,7 @@ class Searchbar extends Component<
           }
         `}
         autoComplete="off"
-        invalid={meta.active && !!meta.error}
-        list="pokemons"
+        invalid={hasError}
         aria-label="Search any Pokémon"
         {...input}
       />
@@ -91,30 +95,17 @@ class Searchbar extends Component<
   }
 }
 
-const validate: Validator = value => {
-  const { search } = value;
-
-  if (
-    search &&
-    pokemonNames.findIndex(
-      availableName => availableName.toLowerCase() === search.toLowerCase()
-    ) === -1
-  )
-    return { search: "Invalid Pokémon Name" };
-};
-
 const mapStateToProps = (state: IState) => {
   const { pokemons, currentPokemon, currentForm } = state.pokemon;
-  const { name, palettes } = pokemons[currentPokemon][currentForm];
+  const { palettes } = pokemons[currentPokemon][currentForm];
 
-  return { name, palettes };
+  return { palettes };
 };
 
 export default connect(mapStateToProps, {
-  changePokemon
+  searchPokemonByName
 })(
-  reduxForm<{}, INavbarProps>({
-    form: "searchPokemon",
-    validate
+  reduxForm<ISearchFormValues, INavbarProps>({
+    form: "searchPokemon"
   })(Searchbar)
 );
