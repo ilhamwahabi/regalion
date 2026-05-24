@@ -165,19 +165,15 @@ const pokemonSpriteStyle = css`
 const pokemonHeaderStyle = css`
   position: absolute;
   top: 0;
-  left: 10px;
-  right: 10px;
+  left: 0;
+  right: 0;
   z-index: 2;
   display: flex;
   align-items: baseline;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 0.5rem 1rem;
-
-  @media (max-width: 1024px) {
-    left: 0;
-    right: 0;
-    justify-content: center;
-  }
+  text-align: center;
 `;
 
 const pokemonNameStyle = css`

@@ -312,6 +312,27 @@ export const findEvolutionPath = (
   return null;
 };
 
+const collectEvolutionDescendants = (node: EvolutionNode): EvolutionNode[] => {
+  const descendants: EvolutionNode[] = [];
+
+  for (const child of node.evolves_to) {
+    descendants.push(child);
+    descendants.push(...collectEvolutionDescendants(child));
+  }
+
+  return descendants;
+};
+
+export const findFullEvolutionLine = (
+  chain: EvolutionNode,
+  targetSpecies: string
+): EvolutionNode[] => {
+  const path = findEvolutionPath(chain, targetSpecies) || [chain];
+  const current = path[path.length - 1];
+
+  return [...path, ...collectEvolutionDescendants(current)];
+};
+
 export const isMegaForm = (name: string) => name.includes("-mega");
 
 export const isStarterPokemon = (speciesId: number, isDefault: boolean) =>

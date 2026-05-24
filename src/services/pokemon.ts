@@ -3,7 +3,7 @@ import { IPokemon, IPreviewPokemon } from "../types";
 import {
   buildFamily,
   extractPalettes,
-  findEvolutionPath,
+  findFullEvolutionLine,
   formatAbility,
   formatEggGroup,
   formatHeight,
@@ -80,8 +80,7 @@ const transformPokemon = async (
 ): Promise<IPokemon> => {
   const primaryType = pokemon.types[0]?.type.name;
   const sprite = getSpriteUrl(pokemon);
-  const evolutionPath =
-    findEvolutionPath(evolutionChain, species.name) || [evolutionChain];
+  const evolutionPath = findFullEvolutionLine(evolutionChain, species.name);
   const isMega = isMegaForm(pokemon.name);
   const normalAbilities = pokemon.abilities
     .filter(ability => !ability.is_hidden)
